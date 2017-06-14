@@ -13,7 +13,9 @@ package RoutineGuard;
 public class ActualDay extends Day {
     
     /* ----- Classe "ActualDay" - Attributs ----- */
-    
+    private int hour;
+    private int routineFulfillment;
+    private int alertLevel;
     /* ----- Classe "ActualDay" - Constructeurs ----- */
     
     /* ----- Classe "ActualDay" - Méthodes ----- */
