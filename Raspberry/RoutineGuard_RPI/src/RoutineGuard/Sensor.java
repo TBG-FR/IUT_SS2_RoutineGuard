@@ -13,7 +13,7 @@ package RoutineGuard;
 public class Sensor {
     
     /* ----- Classe "Sensor" - Attributs ----- */
-    
+ 
     /* ----- Classe "Sensor" - Constructeurs ----- */
     
     /* ----- Classe "Sensor" - Méthodes ----- */

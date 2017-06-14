@@ -13,7 +13,7 @@ package RoutineGuard;
 public class Day {
     
     /* ----- Classe "Day" - Attributs ----- */
-    
+
     /* ----- Classe "Day" - Constructeurs ----- */
     
     /* ----- Classe "Day" - Méthodes ----- */
