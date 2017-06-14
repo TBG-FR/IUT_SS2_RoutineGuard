@@ -1,0 +1,23 @@
+# RoutineGuard - '.gitignore' file
+
+# NetBeans Related Files #
+nbproject/private/
+build/
+nbbuild/
+dist/*
+nbactions.xml
+nb-configuration.xml
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Keep Libraries #
+#!dist/lib/*.jar
+!nbdist/
+nbdist/
+!dist/lib/*
