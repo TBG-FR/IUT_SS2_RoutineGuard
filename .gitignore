@@ -1,0 +1,10 @@
+# RoutineGuard - '.gitignore' file
+
+# 'NetBeans.gitignore'
+
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
