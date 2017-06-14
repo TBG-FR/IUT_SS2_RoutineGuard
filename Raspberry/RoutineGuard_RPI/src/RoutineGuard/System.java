@@ -17,45 +17,45 @@ public class System {
     /* ----- Classe "System" - Constructeurs ----- */
     
     /* ----- Classe "System" - Méthodes ----- */
-    private int sendAlert(){
+    public int sendAlert(){
         
         
         
         return 0; /* TMP */
     } 
     
-    private boolean sendStatsRecap(){
+    public boolean sendStatsRecap(){
         
         
         
         return true; /* TMP */
     } 
     
-    private void databaseLink(){
+    public void databaseLink(){
         
         
         
     } 
     
-    private void helplineCall(){
+    public void helplineCall(){
         
         
     
     } 
     
-    private void temperatureAnalysis(){
+    public void temperatureAnalysis(){
         
         
         
     } 
     
-    private void routineCheck(){
+    public void routineCheck(){
         
         
 
     } 
     
-    private int vitalSignsRecap(){
+    public int vitalSignsRecap(){
         
         
         

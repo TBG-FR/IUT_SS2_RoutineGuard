@@ -21,21 +21,21 @@ public class Bracelet {
     /* ----- Classe "Bracelet" - Constructeurs ----- */
     
     /* ----- Classe "Bracelet" - Méthodes ----- */
-    private boolean help(){
+    public boolean help(){
         
         
         
         return false; /* TMP */
     }
 
-    private int reply(){
+    public int reply(){
             
         
         
         return 0; /* TMP */
     }
     
-    private int vibrationLevel(){
+    public int vibrationLevel(){
             
         
         

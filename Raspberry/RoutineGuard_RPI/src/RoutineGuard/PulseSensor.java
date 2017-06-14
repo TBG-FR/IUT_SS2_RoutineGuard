@@ -20,14 +20,14 @@ public class PulseSensor extends Sensor {
     /* ----- Classe "PulseSensor" - Constructeurs ----- */
     
     /* ----- Classe "PulseSensor" - Méthodes ----- */
-    private double averageCalculation(){
+    public double averageCalculation(){
             
         
         
         return 0; /* TMP */
     }    
     
-    private int cardiacAnalysis(){
+    public int cardiacAnalysis(){
             
         
         
