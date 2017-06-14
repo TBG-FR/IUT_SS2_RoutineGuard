@@ -13,6 +13,7 @@ package RoutineGuard;
 public class Bracelet {
     
     /* ----- Classe "Bracelet" - Attributs ----- */
+    private int test;
     
     /* ----- Classe "Bracelet" - Constructeurs ----- */
     
