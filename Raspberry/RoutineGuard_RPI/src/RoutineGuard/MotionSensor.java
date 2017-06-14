@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class MotionSensor extends Sensor {
     
+    /* ----- Classe "MotionSensor" - Attributs ----- */
+    
+    /* ----- Classe "MotionSensor" - Constructeurs ----- */
+    
+    /* ----- Classe "MotionSensor" - Méthodes ----- */
+        
+    /* ----- Classe "MotionSensor" - Accesseurs ----- */    
+    
+    /* ----- Classe "MotionSensor" - Mutateurs ----- */
+    
 }

@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class House {
     
+    /* ----- Classe "House" - Attributs ----- */
+    
+    /* ----- Classe "House" - Constructeurs ----- */
+    
+    /* ----- Classe "House" - Méthodes ----- */
+        
+    /* ----- Classe "House" - Accesseurs ----- */    
+    
+    /* ----- Classe "House" - Mutateurs ----- */
+    
 }

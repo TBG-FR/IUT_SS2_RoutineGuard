@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class Bracelet {
     
+    /* ----- Classe "Bracelet" - Attributs ----- */
+    
+    /* ----- Classe "Bracelet" - Constructeurs ----- */
+    
+    /* ----- Classe "Bracelet" - Méthodes ----- */
+        
+    /* ----- Classe "Bracelet" - Accesseurs ----- */    
+    
+    /* ----- Classe "Bracelet" - Mutateurs ----- */
+    
 }

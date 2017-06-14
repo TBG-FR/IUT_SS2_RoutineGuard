@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class ActualDay extends Day {
     
+    /* ----- Classe "ActualDay" - Attributs ----- */
+    
+    /* ----- Classe "ActualDay" - Constructeurs ----- */
+    
+    /* ----- Classe "ActualDay" - Méthodes ----- */
+        
+    /* ----- Classe "ActualDay" - Accesseurs ----- */    
+    
+    /* ----- Classe "ActualDay" - Mutateurs ----- */
+    
 }

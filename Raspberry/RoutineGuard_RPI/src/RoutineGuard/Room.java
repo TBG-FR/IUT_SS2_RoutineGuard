@@ -14,4 +14,14 @@ package RoutineGuard;
 
 public class Room {
     
+    /* ----- Classe "Room" - Attributs ----- */
+    
+    /* ----- Classe "Room" - Constructeurs ----- */
+    
+    /* ----- Classe "Room" - Méthodes ----- */
+        
+    /* ----- Classe "Room" - Accesseurs ----- */    
+    
+    /* ----- Classe "Room" - Mutateurs ----- */
+    
 }

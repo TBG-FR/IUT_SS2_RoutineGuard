@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class History {
     
+    /* ----- Classe "History" - Attributs ----- */
+    
+    /* ----- Classe "History" - Constructeurs ----- */
+    
+    /* ----- Classe "History" - Méthodes ----- */
+        
+    /* ----- Classe "History" - Accesseurs ----- */    
+    
+    /* ----- Classe "History" - Mutateurs ----- */
+    
 }

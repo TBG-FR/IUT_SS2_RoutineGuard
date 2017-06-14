@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class Event {
     
+    /* ----- Classe "Event" - Attributs ----- */
+    
+    /* ----- Classe "Event" - Constructeurs ----- */
+    
+    /* ----- Classe "Event" - Méthodes ----- */
+        
+    /* ----- Classe "Event" - Accesseurs ----- */    
+    
+    /* ----- Classe "Event" - Mutateurs ----- */
+    
 }

@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class System {
     
+    /* ----- Classe "System" - Attributs ----- */
+    
+    /* ----- Classe "System" - Constructeurs ----- */
+    
+    /* ----- Classe "System" - Méthodes ----- */
+        
+    /* ----- Classe "System" - Accesseurs ----- */    
+    
+    /* ----- Classe "System" - Mutateurs ----- */
+    
 }

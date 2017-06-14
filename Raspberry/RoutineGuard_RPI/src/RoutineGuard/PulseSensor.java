@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class PulseSensor extends Sensor {
     
+    /* ----- Classe "PulseSensor" - Attributs ----- */
+    
+    /* ----- Classe "PulseSensor" - Constructeurs ----- */
+    
+    /* ----- Classe "PulseSensor" - Méthodes ----- */
+        
+    /* ----- Classe "PulseSensor" - Accesseurs ----- */    
+    
+    /* ----- Classe "PulseSensor" - Mutateurs ----- */
+    
 }

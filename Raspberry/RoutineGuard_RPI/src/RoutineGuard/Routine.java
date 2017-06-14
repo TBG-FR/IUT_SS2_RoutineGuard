@@ -12,4 +12,14 @@ package RoutineGuard;
 
 public class Routine extends Day {
     
+    /* ----- Classe "Routine" - Attributs ----- */
+    
+    /* ----- Classe "Routine" - Constructeurs ----- */
+    
+    /* ----- Classe "Routine" - Méthodes ----- */
+        
+    /* ----- Classe "Routine" - Accesseurs ----- */    
+    
+    /* ----- Classe "Routine" - Mutateurs ----- */
+    
 }
