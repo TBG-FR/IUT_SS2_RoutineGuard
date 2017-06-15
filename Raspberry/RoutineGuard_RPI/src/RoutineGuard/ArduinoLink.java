@@ -1,6 +1,7 @@
 /*
  *
  */
+
 package RoutineGuard;
 
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class ArduinoLink {
 //        }
 //    }
     
-    private void go() throws Exception {
+    public void test() throws Exception {
         StreamConnection streamConnection = (StreamConnection)
             Connector.open(hc05Url);
         OutputStream os = streamConnection.openOutputStream();
