@@ -16,12 +16,23 @@ public class Day {
     
     /* ----- Classe "Day" - Attributs ----- */
     protected ArrayList<Event>Events;
+    
     /* ----- Classe "Day" - Constructeurs ----- */
+    
+    public Day() {
+        Events = new ArrayList();
+    }
     
     /* ----- Classe "Day" - Méthodes ----- */
         
+    public void addEvent(Event e){
+        Events.add(e);
+    }
+    
     /* ----- Classe "Day" - Accesseurs ----- */    
     
     /* ----- Classe "Day" - Mutateurs ----- */
+
+
     
 }
