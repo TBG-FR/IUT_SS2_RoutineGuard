@@ -4,7 +4,7 @@
 nbproject/private/
 build/
 nbbuild/
-dist/*
+nbdist/
 nbactions.xml
 nb-configuration.xml
 
@@ -17,7 +17,9 @@ nb-configuration.xml
 *.ear
 
 # Keep Libraries #
-#!dist/lib/*.jar
-!nbdist/
-nbdist/
+#!dist/lib/*.jar # dist/* # !dist/* # !dist/lib/*
+# Ref: https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
+!dist/
+dist/*
+!dist/lib/
 !dist/lib/*
