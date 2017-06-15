@@ -14,7 +14,7 @@ public class RoutineGuard { /* MAIN */
      
     public static void main(String[] args) {
         
-        
+        ArduinoLink AL1 = new ArduinoLink();
         
     }
     

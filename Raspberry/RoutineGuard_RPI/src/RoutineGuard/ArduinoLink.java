@@ -31,13 +31,13 @@ public class ArduinoLink {
     //Replace this with your bluetooth URL    
     String hc05Url = "btspp://d08ba54f422c:1;authenticate=false;encrypt=false;master=false";
     
-    public static void main(String[] args) {
-        try {
-            new ArduinoLink().go();
-        } catch (Exception ex) {
-            Logger.getLogger(ArduinoLink.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public static void main(String[] args) {
+//        try {
+//            new ArduinoLink().go();
+//        } catch (Exception ex) {
+//            Logger.getLogger(ArduinoLink.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     
     private void go() throws Exception {
         StreamConnection streamConnection = (StreamConnection)
