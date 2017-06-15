@@ -17,7 +17,47 @@ public class DisplayInterface {
     /* ----- Classe "DisplayInterface" - Constructeurs ----- */
     
     /* ----- Classe "DisplayInterface" - Méthodes ----- */
+    public void declareVisit(){
         
+        
+        
+    }
+    
+    public void endVisit(){
+        
+        
+        
+    }
+    
+    public void declareExit(){
+        
+        
+        
+    }
+    
+    public void endExit(){
+        
+        
+        
+    }
+   
+    public void callAssist(){
+        
+        
+        
+    }
+    
+    public void refreshSchedule(){
+        
+        
+        
+    }
+    
+    public void refreshAll(){
+        
+        
+        
+    }
     /* ----- Classe "DisplayInterface" - Accesseurs ----- */    
     
     /* ----- Classe "DisplayInterface" - Mutateurs ----- */

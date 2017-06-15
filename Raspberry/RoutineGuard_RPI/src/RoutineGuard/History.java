@@ -3,6 +3,8 @@
  */
 package RoutineGuard;
 
+import java.util.ArrayList;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -13,7 +15,7 @@ package RoutineGuard;
 public class History {
     
     /* ----- Classe "History" - Attributs ----- */
-    
+    private ArrayList<ActualDay>ActualDays;
     /* ----- Classe "History" - Constructeurs ----- */
     
     /* ----- Classe "History" - Méthodes ----- */

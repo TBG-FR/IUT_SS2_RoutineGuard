@@ -13,11 +13,16 @@ package RoutineGuard;
 public class TemperatureSensor extends Sensor {
     
     /* ----- Classe "TemperatureSensor" - Attributs ----- */
-    
+    private int temperature;
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
     
     /* ----- Classe "TemperatureSensor" - Méthodes ----- */
+    public int temperatureAnalysis(){
         
+        
+        
+        return 0; /* TMP */
+    }
     /* ----- Classe "TemperatureSensor" - Accesseurs ----- */    
     
     /* ----- Classe "TemperatureSensor" - Mutateurs ----- */

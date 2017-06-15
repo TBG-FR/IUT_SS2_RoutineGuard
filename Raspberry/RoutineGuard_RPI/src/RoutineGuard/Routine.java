@@ -13,7 +13,8 @@ package RoutineGuard;
 public class Routine extends Day {
     
     /* ----- Classe "Routine" - Attributs ----- */
-    
+    private int globalRoutineFulfiltment;
+    private int globalTolerance;
     /* ----- Classe "Routine" - Constructeurs ----- */
     
     /* ----- Classe "Routine" - Méthodes ----- */

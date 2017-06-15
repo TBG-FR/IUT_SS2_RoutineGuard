@@ -13,11 +13,16 @@ package RoutineGuard;
 public class ContactSensor extends Sensor {
     
     /* ----- Classe "ContactSensor" - Attributs ----- */
-    
+    private int contact;
     /* ----- Classe "ContactSensor" - Constructeurs ----- */
     
     /* ----- Classe "ContactSensor" - Méthodes ----- */
+    private boolean contactDetection(){
+                
         
+        
+        return false; /* TMP */
+    }    
     /* ----- Classe "ContactSensor" - Accesseurs ----- */    
     
     /* ----- Classe "ContactSensor" - Mutateurs ----- */

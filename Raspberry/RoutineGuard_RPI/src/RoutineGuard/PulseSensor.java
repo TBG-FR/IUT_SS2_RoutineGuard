@@ -13,11 +13,26 @@ package RoutineGuard;
 public class PulseSensor extends Sensor {
     
     /* ----- Classe "PulseSensor" - Attributs ----- */
-    
+    private double BPMlist;
+    private double IBIlist;
+    private double BPMaverage;
+    private double IBIaverage;
     /* ----- Classe "PulseSensor" - Constructeurs ----- */
     
     /* ----- Classe "PulseSensor" - Méthodes ----- */
+    public double averageCalculation(){
+            
         
+        
+        return 0; /* TMP */
+    }    
+    
+    public int cardiacAnalysis(){
+            
+        
+        
+        return 0; /* TMP */
+    } 
     /* ----- Classe "PulseSensor" - Accesseurs ----- */    
     
     /* ----- Classe "PulseSensor" - Mutateurs ----- */

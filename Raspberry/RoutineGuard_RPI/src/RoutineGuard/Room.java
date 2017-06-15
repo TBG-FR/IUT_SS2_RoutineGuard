@@ -15,11 +15,17 @@ package RoutineGuard;
 public class Room {
     
     /* ----- Classe "Room" - Attributs ----- */
-    
+    private boolean userPresence;
+    private int roomType;
     /* ----- Classe "Room" - Constructeurs ----- */
     
     /* ----- Classe "Room" - Méthodes ----- */
+    public int presenceDetection(){
         
+        
+        
+        return 0; /* TMP */ 
+    }    
     /* ----- Classe "Room" - Accesseurs ----- */    
     
     /* ----- Classe "Room" - Mutateurs ----- */

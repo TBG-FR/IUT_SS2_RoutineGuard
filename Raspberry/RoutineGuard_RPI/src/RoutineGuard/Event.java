@@ -13,7 +13,11 @@ package RoutineGuard;
 public class Event {
     
     /* ----- Classe "Event" - Attributs ----- */
-    
+    private int beginHour;
+    private int duration;
+    private int tolerance;
+    private int eventType;
+    private int eventImportance;
     /* ----- Classe "Event" - Constructeurs ----- */
     
     /* ----- Classe "Event" - Méthodes ----- */

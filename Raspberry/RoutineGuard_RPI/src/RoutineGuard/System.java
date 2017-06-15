@@ -13,11 +13,54 @@ package RoutineGuard;
 public class System {
     
     /* ----- Classe "System" - Attributs ----- */
-    
+    private int alertCondition;
     /* ----- Classe "System" - Constructeurs ----- */
     
     /* ----- Classe "System" - Méthodes ----- */
+    public int sendAlert(){
         
+        
+        
+        return 0; /* TMP */
+    } 
+    
+    public boolean sendStatsRecap(){
+        
+        
+        
+        return true; /* TMP */
+    } 
+    
+    public void databaseLink(){
+        
+        
+        
+    } 
+    
+    public void helplineCall(){
+        
+        
+    
+    } 
+    
+    public void temperatureAnalysis(){
+        
+        
+        
+    } 
+    
+    public void routineCheck(){
+        
+        
+
+    } 
+    
+    public int vitalSignsRecap(){
+        
+        
+        
+        return 0; /* TMP */
+    } 
     /* ----- Classe "System" - Accesseurs ----- */    
     
     /* ----- Classe "System" - Mutateurs ----- */

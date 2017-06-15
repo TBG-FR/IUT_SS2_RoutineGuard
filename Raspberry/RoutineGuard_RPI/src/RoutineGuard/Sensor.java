@@ -13,11 +13,15 @@ package RoutineGuard;
 public class Sensor {
     
     /* ----- Classe "Sensor" - Attributs ----- */
-    
+    protected int idSensor;
     /* ----- Classe "Sensor" - Constructeurs ----- */
     
     /* ----- Classe "Sensor" - Méthodes ----- */
+    public void sendData(){
         
+        
+        
+    }     
     /* ----- Classe "Sensor" - Accesseurs ----- */    
     
     /* ----- Classe "Sensor" - Mutateurs ----- */
