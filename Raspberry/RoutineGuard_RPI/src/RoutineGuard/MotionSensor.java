@@ -17,7 +17,12 @@ public class MotionSensor extends Sensor {
     /* ----- Classe "MotionSensor" - Constructeurs ----- */
     
     /* ----- Classe "MotionSensor" - Méthodes ----- */
+    public boolean motion(){
         
+        
+        
+        return true; /* TMP */
+    }    
     /* ----- Classe "MotionSensor" - Accesseurs ----- */    
     
     /* ----- Classe "MotionSensor" - Mutateurs ----- */
