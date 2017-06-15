@@ -13,11 +13,16 @@ package RoutineGuard;
 public class AccelerometerSensor extends Sensor {
     
     /* ----- Classe "AccelerometerSensor" - Attributs ----- */
-    
+    private int tabAccelerometer;
     /* ----- Classe "AccelerometerSensor" - Constructeurs ----- */
     
     /* ----- Classe "AccelerometerSensor" - Méthodes ----- */
+    public int accelerometerAnalysis(){
         
+        
+        
+        return 0; /* TMP */ 
+    }
     /* ----- Classe "AccelerometerSensor" - Accesseurs ----- */    
     
     /* ----- Classe "AccelerometerSensor" - Mutateurs ----- */
