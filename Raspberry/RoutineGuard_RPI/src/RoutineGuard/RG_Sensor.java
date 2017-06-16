@@ -28,6 +28,7 @@ public abstract class RG_Sensor {
     
     /* ----- Classe "Sensor" - Méthodes ----- */
     public abstract double getData();
+ 
     
     /* ----- Classe "Sensor" - Accesseurs ----- */    
     

@@ -3,6 +3,9 @@
  */
 package RoutineGuard;
 
+import grovepi.sensors.ButtonSensor;
+import grovepi.Pin;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -11,15 +14,14 @@ package RoutineGuard;
  */
 
 public class MotionSensor extends RG_Sensor {
-
-    public MotionSensor(int id) {
-        super(id);
-    }
     
     /* ----- Classe "MotionSensor" - Attributs ----- */
-    
+    ButtonSensor BS;
     /* ----- Classe "MotionSensor" - Constructeurs ----- */
-    
+    public MotionSensor(int id) {
+        super(id);
+        BS=new ButtonSensor(gp,Pin.DIGITAL_PIN_7);
+    }
     /* ----- Classe "MotionSensor" - Méthodes ----- */
     public boolean motion(){
         
@@ -33,7 +35,12 @@ public class MotionSensor extends RG_Sensor {
 
     @Override
     public double getData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(BS.getState()==true){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
     
 }

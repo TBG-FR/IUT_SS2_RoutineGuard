@@ -17,7 +17,6 @@ import grovepi.Pin;
 public class TemperatureSensor extends RG_Sensor {
     
     /* ----- Classe "TemperatureSensor" - Attributs ----- */
-    private int temperature=0;
     TemperatureAndHumiditySensor T;
     
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
