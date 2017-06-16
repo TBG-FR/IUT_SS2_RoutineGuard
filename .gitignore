@@ -1,0 +1,8 @@
+# ----- NetBeans Related Files ----- #
+
+# Files with following Extensions #
+*.class
+
+# Precise Paths & Locations #
+Raspberry/RoutineGuard_App/build/
+Raspberry/RoutineGuard_App/nbproject/private/
