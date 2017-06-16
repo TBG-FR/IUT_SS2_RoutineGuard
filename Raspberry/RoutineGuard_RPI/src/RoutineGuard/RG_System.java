@@ -1,6 +1,7 @@
 /*
  *
  */
+
 package RoutineGuard;
 
 /**
@@ -14,6 +15,7 @@ public class RG_System {
     
     /* ----- Classe "System" - Attributs ----- */
     private int alertCondition;
+    
     /* ----- Classe "System" - Constructeurs ----- */
     
     /* ----- Classe "System" - Méthodes ----- */
@@ -60,7 +62,8 @@ public class RG_System {
         
         
         return 0; /* TMP */
-    } 
+    }
+    
     /* ----- Classe "System" - Accesseurs ----- */    
     
     /* ----- Classe "System" - Mutateurs ----- */
