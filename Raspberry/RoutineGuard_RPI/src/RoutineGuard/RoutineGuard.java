@@ -13,7 +13,7 @@ package RoutineGuard;
 public class RoutineGuard { /* MAIN */
      
     public static void main(String[] args) {
-        while(1<2){
+        
             TemperatureSensor T1 = new TemperatureSensor(8);
             HumiditySensor H1=new HumiditySensor(8);
             System.out.println("Température : "+T1.getData());
@@ -32,7 +32,7 @@ public class RoutineGuard { /* MAIN */
                     System.out.println("Bouton Appuyé");
                 }
             }
-        }
+        
         
         
         
