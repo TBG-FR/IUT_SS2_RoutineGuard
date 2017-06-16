@@ -3,6 +3,8 @@
  */
 package RoutineGuard;
 
+import grovepi.Pin;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -16,8 +18,8 @@ public class ContactSensor extends RG_Sensor {
     private int contact;
     /* ----- Classe "ContactSensor" - Constructeurs ----- */
 
-    public ContactSensor(int id) {
-        super(id);
+    public ContactSensor(int _pin) {
+        super(_pin);
     }
     
     /* ----- Classe "ContactSensor" - Méthodes ----- */

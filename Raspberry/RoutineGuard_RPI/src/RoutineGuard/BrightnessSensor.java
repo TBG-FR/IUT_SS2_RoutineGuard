@@ -3,6 +3,8 @@
  */
 package RoutineGuard;
 
+import grovepi.Pin;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -17,8 +19,8 @@ public class BrightnessSensor  extends RG_Sensor {
     private double threshold;
     /* ----- Classe "BrightnessSensor" - Constructeurs ----- */
 
-    public BrightnessSensor(int id) {
-        super(id);
+    public BrightnessSensor(int _pin) {
+        super(_pin);
     }
     
     /* ----- Classe "BrightnessSensor" - Méthodes ----- */

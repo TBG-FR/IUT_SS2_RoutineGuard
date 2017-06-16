@@ -3,6 +3,8 @@
  */
 package RoutineGuard;
 
+import grovepi.Pin;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -19,8 +21,8 @@ public class PulseSensor extends RG_Sensor {
     private double IBIaverage;
     /* ----- Classe "PulseSensor" - Constructeurs ----- */
 
-    public PulseSensor(int id) {
-        super(id);
+    public PulseSensor(int _pin) {
+        super(_pin);
     }
     
     /* ----- Classe "PulseSensor" - Méthodes ----- */

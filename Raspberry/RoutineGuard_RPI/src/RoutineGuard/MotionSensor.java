@@ -18,17 +18,12 @@ public class MotionSensor extends RG_Sensor {
     /* ----- Classe "MotionSensor" - Attributs ----- */
     ButtonSensor BS;
     /* ----- Classe "MotionSensor" - Constructeurs ----- */
-    public MotionSensor(int id) {
-        super(id);
+    public MotionSensor(int _pin) {
+        super(_pin);
         BS=new ButtonSensor(gp,Pin.DIGITAL_PIN_7);
     }
     /* ----- Classe "MotionSensor" - Méthodes ----- */
-    public boolean motion(){
-        
-        
-        
-        return true; /* TMP */
-    }    
+      
     /* ----- Classe "MotionSensor" - Accesseurs ----- */    
     
     /* ----- Classe "MotionSensor" - Mutateurs ----- */

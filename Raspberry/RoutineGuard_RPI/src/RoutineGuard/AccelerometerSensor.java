@@ -3,6 +3,8 @@
  */
 package RoutineGuard;
 
+import grovepi.Pin;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -16,8 +18,8 @@ public class AccelerometerSensor extends RG_Sensor {
     private int tabAccelerometer;
     /* ----- Classe "AccelerometerSensor" - Constructeurs ----- */
 
-    public AccelerometerSensor(int id) {
-        super(id);
+    public AccelerometerSensor(int _pin) {
+        super(_pin);
     }
     
     /* ----- Classe "AccelerometerSensor" - Méthodes ----- */
