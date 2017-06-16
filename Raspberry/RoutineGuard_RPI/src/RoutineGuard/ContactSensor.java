@@ -3,6 +3,7 @@
  */
 package RoutineGuard;
 
+import grovepi.sensors.ButtonSensor;
 import grovepi.Pin;
 
 /**
@@ -15,27 +16,27 @@ import grovepi.Pin;
 public class ContactSensor extends RG_Sensor {
     
     /* ----- Classe "ContactSensor" - Attributs ----- */
-    private int contact;
+    ButtonSensor BS;
     /* ----- Classe "ContactSensor" - Constructeurs ----- */
-
     public ContactSensor(int _pin) {
         super(_pin);
+        BS = new ButtonSensor(gp,pin);
     }
     
     /* ----- Classe "ContactSensor" - Méthodes ----- */
-    private boolean contactDetection(){
-                
-        
-        
-        return false; /* TMP */
-    }    
+     
     /* ----- Classe "ContactSensor" - Accesseurs ----- */    
     
     /* ----- Classe "ContactSensor" - Mutateurs ----- */
 
     @Override
     public double getData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(BS.getState()==true){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
     
 }

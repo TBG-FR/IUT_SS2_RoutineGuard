@@ -13,16 +13,26 @@ package RoutineGuard;
 public class RoutineGuard { /* MAIN */
      
     public static void main(String[] args) {
-        
-        TemperatureSensor T1 = new TemperatureSensor(8);
-        HumiditySensor H1=new HumiditySensor(1);
-        System.out.println("Température : "+T1.getData());
-        System.out.println("Humidité : "+H1.getData());
+        while(1<2){
+            TemperatureSensor T1 = new TemperatureSensor(8);
+            HumiditySensor H1=new HumiditySensor(8);
+            System.out.println("Température : "+T1.getData());
+            System.out.println("Humidité : "+H1.getData());
 
-        /*MotionSensor MS1=new MotionSensor(2);
-        for(int i=0;i<100;i++){
-            System.out.println(MS1.getData());
-        }*/
+            MotionSensor MS1=new MotionSensor(7);
+            for(int i=0;i<1000;i++){
+                if(MS1.getData()==1){
+                    System.out.println("Mouvement detecté");
+                }
+            }
+
+            ContactSensor CS1=new ContactSensor(3);
+            for(int i=0;i<1000;i++){
+                if(CS1.getData()==1){
+                    System.out.println("Bouton Appuyé");
+                }
+            }
+        }
         
         
         

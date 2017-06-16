@@ -20,7 +20,7 @@ public class MotionSensor extends RG_Sensor {
     /* ----- Classe "MotionSensor" - Constructeurs ----- */
     public MotionSensor(int _pin) {
         super(_pin);
-        BS=new ButtonSensor(gp,Pin.DIGITAL_PIN_7);
+        BS=new ButtonSensor(gp,pin);
     }
     /* ----- Classe "MotionSensor" - Méthodes ----- */
       

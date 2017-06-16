@@ -22,7 +22,7 @@ public class HumiditySensor extends RG_Sensor {
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
     public HumiditySensor(int _pin) {
         super(_pin);
-        H = new TemperatureAndHumiditySensor(gp,Pin.DIGITAL_PIN_8,TemperatureAndHumiditySensor.Model.DHT22);
+        H = new TemperatureAndHumiditySensor(gp,pin,TemperatureAndHumiditySensor.Model.DHT22);
         
     }
     
