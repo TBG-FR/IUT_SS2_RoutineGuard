@@ -50,6 +50,10 @@ public class Event {
     public EventType getEventType() {
         return eventType;
     }
+    
+    public String getStringEventType(){
+        return "" + eventType;
+    }
 
     public int getEventImportance() {
         return eventImportance;
