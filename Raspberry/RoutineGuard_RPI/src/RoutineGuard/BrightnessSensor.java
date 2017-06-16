@@ -10,12 +10,16 @@ package RoutineGuard;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class BrightnessSensor extends Sensor {
+public class BrightnessSensor  extends RG_Sensor {
     
     /* ----- Classe "BrightnessSensor" - Attributs ----- */
     private double brightness;
     private double threshold;
     /* ----- Classe "BrightnessSensor" - Constructeurs ----- */
+
+    public BrightnessSensor(int id) {
+        super(id);
+    }
     
     /* ----- Classe "BrightnessSensor" - Méthodes ----- */
     public double brightnessCalculation(){
@@ -27,5 +31,10 @@ public class BrightnessSensor extends Sensor {
     /* ----- Classe "BrightnessSensor" - Accesseurs ----- */    
     
     /* ----- Classe "BrightnessSensor" - Mutateurs ----- */
+
+    @Override
+    public double getData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

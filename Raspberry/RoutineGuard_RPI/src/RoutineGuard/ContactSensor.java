@@ -10,11 +10,15 @@ package RoutineGuard;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class ContactSensor extends Sensor {
+public class ContactSensor extends RG_Sensor {
     
     /* ----- Classe "ContactSensor" - Attributs ----- */
     private int contact;
     /* ----- Classe "ContactSensor" - Constructeurs ----- */
+
+    public ContactSensor(int id) {
+        super(id);
+    }
     
     /* ----- Classe "ContactSensor" - Méthodes ----- */
     private boolean contactDetection(){
@@ -26,5 +30,10 @@ public class ContactSensor extends Sensor {
     /* ----- Classe "ContactSensor" - Accesseurs ----- */    
     
     /* ----- Classe "ContactSensor" - Mutateurs ----- */
+
+    @Override
+    public double getData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

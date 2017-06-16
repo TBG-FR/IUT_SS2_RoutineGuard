@@ -10,7 +10,11 @@ package RoutineGuard;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class MotionSensor extends Sensor {
+public class MotionSensor extends RG_Sensor {
+
+    public MotionSensor(int id) {
+        super(id);
+    }
     
     /* ----- Classe "MotionSensor" - Attributs ----- */
     
@@ -26,5 +30,10 @@ public class MotionSensor extends Sensor {
     /* ----- Classe "MotionSensor" - Accesseurs ----- */    
     
     /* ----- Classe "MotionSensor" - Mutateurs ----- */
+
+    @Override
+    public double getData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

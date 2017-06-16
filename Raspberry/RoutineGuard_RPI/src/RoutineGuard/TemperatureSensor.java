@@ -1,7 +1,13 @@
 /*
  *
  */
+
 package RoutineGuard;
+
+import grovepi.GrovePi;
+import grovepi.sensors.Sensor;
+import grovepi.sensors.TemperatureAndHumiditySensor;
+import grovepi.Pin;
 
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
@@ -10,21 +16,29 @@ package RoutineGuard;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class TemperatureSensor extends Sensor {
+public class TemperatureSensor extends RG_Sensor {
     
     /* ----- Classe "TemperatureSensor" - Attributs ----- */
     private int temperature;
+    TemperatureAndHumiditySensor T;
+    
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
+    public TemperatureSensor(int id) {
+        super(id);        
+        T=new TemperatureAndHumiditySensor(gp,grovepi.Pin.DIGITAL_PIN_8);
+        
+    }
     
     /* ----- Classe "TemperatureSensor" - Méthodes ----- */
-    public int temperatureAnalysis(){
-        
-        
-        
-        return 0; /* TMP */
-    }
+
     /* ----- Classe "TemperatureSensor" - Accesseurs ----- */    
     
     /* ----- Classe "TemperatureSensor" - Mutateurs ----- */
+
+    @Override
+    public double getData() {
+        T.update();
+        return T.getTemperature();
+    }
     
 }
