@@ -17,7 +17,8 @@ public class Bracelet {
     /* ----- Classe "Bracelet" - Attributs ----- */
     private int idBracelet;
     private boolean isCarried;
-    private ArrayList<Sensor>Sensors;
+    private ArrayList<RG_Sensor>Sensors;
+    
     /* ----- Classe "Bracelet" - Constructeurs ----- */
     
     /* ----- Classe "Bracelet" - Méthodes ----- */

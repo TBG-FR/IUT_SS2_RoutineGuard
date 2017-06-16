@@ -14,15 +14,15 @@ import grovepi.Pin;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class TemperatureSensor extends RG_Sensor {
+public class HumiditySensor extends RG_Sensor {
     
     /* ----- Classe "TemperatureSensor" - Attributs ----- */
-    TemperatureAndHumiditySensor T;
+    TemperatureAndHumiditySensor H;
     
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
-    public TemperatureSensor(int _pin) {
+    public HumiditySensor(int _pin) {
         super(_pin);
-        T = new TemperatureAndHumiditySensor(gp,pin,TemperatureAndHumiditySensor.Model.DHT22);
+        H = new TemperatureAndHumiditySensor(gp,pin,TemperatureAndHumiditySensor.Model.DHT22);
         
     }
     
@@ -34,8 +34,8 @@ public class TemperatureSensor extends RG_Sensor {
 
     @Override
     public double getData() {
-        T.update();
-        return T.getTemperature();
+        H.update();
+        return H.getHumidity();
     }
     
 }

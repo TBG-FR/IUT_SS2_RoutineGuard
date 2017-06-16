@@ -1,15 +1,3 @@
-# NetBeans Related Files #
-nbproject/private/
-build/
-nbbuild/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
-# Class Files #
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+/Raspberry/RoutineGuard_RPI/dist/README.TXT
+/Raspberry/RoutineGuard_RPI/dist/RoutineGuard_RPI.jar
+/Raspberry/RoutineGuard_RPI/build/

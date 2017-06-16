@@ -10,7 +10,7 @@ package RoutineGuard;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class System {
+public class RG_System {
     
     /* ----- Classe "System" - Attributs ----- */
     private int alertCondition;

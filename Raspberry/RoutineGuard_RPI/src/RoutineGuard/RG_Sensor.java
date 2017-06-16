@@ -3,6 +3,9 @@
  */
 package RoutineGuard;
 
+import grovepi.GrovePi;
+import grovepi.Pin;
+
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
  * @author Dyvia Fleury <dyvia.fleury@etu.univ-lyon1.fr>
@@ -10,18 +13,25 @@ package RoutineGuard;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class Sensor {
+public abstract class RG_Sensor {
     
     /* ----- Classe "Sensor" - Attributs ----- */
-    protected int idSensor;
+    protected GrovePi gp;
+    protected int pin;
+    
     /* ----- Classe "Sensor" - Constructeurs ----- */
+    public RG_Sensor(int _pin) {
+        if(_pin<9 && _pin>-1)
+            this.pin=_pin;
+            
+        if(this.gp==null)
+            this.gp=new GrovePi();
+    }
     
     /* ----- Classe "Sensor" - Méthodes ----- */
-    public void sendData(){
-        
-        
-        
-    }     
+    public abstract double getData();
+ 
+    
     /* ----- Classe "Sensor" - Accesseurs ----- */    
     
     /* ----- Classe "Sensor" - Mutateurs ----- */
