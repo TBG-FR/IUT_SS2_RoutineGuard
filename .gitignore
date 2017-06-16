@@ -9,11 +9,7 @@ nb-configuration.xml
 # Class Files #
 *.class
 
-# Package Files #
-*.jar
+# Package Files (removed *.jar) #
+build/*.jar
 *.war
 *.ear
-
-!/dist/lib/*.jar
-!/dist/lib/
-!/dist/lib/*
