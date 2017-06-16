@@ -14,7 +14,8 @@ public class RoutineGuard { /* MAIN */
      
     public static void main(String[] args) {
         
-        
+        TemperatureSensor T1 = new TemperatureSensor(0);
+        System.out.println(T1.getData());        
         
     }
     

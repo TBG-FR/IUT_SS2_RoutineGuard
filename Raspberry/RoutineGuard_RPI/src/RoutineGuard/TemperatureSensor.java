@@ -4,8 +4,6 @@
 
 package RoutineGuard;
 
-import grovepi.GrovePi;
-import grovepi.sensors.Sensor;
 import grovepi.sensors.TemperatureAndHumiditySensor;
 import grovepi.Pin;
 
@@ -19,13 +17,13 @@ import grovepi.Pin;
 public class TemperatureSensor extends RG_Sensor {
     
     /* ----- Classe "TemperatureSensor" - Attributs ----- */
-    private int temperature;
+    private int temperature=0;
     TemperatureAndHumiditySensor T;
     
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
     public TemperatureSensor(int id) {
         super(id);        
-        T=new TemperatureAndHumiditySensor(gp,grovepi.Pin.DIGITAL_PIN_8);
+        T = new TemperatureAndHumiditySensor(gp,Pin.DIGITAL_PIN_8,TemperatureAndHumiditySensor.Model.DHT22);
         
     }
     
