@@ -4,6 +4,9 @@
 package RoutineGuard;
 
 import grovepi.Pin;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author Tom-Brian Garcia <tom-brian.garcia@etu.univ-lyon1.fr>
@@ -24,19 +27,24 @@ public class BrightnessSensor  extends RG_Sensor {
     }
     
     /* ----- Classe "BrightnessSensor" - Méthodes ----- */
-    public double brightnessCalculation(){
-            
-        
-        
-        return 0; /* TMP */
-    }     
+       
     /* ----- Classe "BrightnessSensor" - Accesseurs ----- */    
     
     /* ----- Classe "BrightnessSensor" - Mutateurs ----- */
 
     @Override
     public double getData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        double bright_calc=0;
+        
+        String txtDate=new SimpleDateFormat("HH", Locale.FRANCE).format(new Date());
+        if(Integer.parseInt(txtDate)<12){
+            bright_calc=Integer.parseInt(txtDate)*8;
+        }
+        else{
+            bright_calc=96.1-((Integer.parseInt(txtDate)-12)*8);
+        }
+        return bright_calc;
     }
     
 }
