@@ -17,6 +17,7 @@ public class ActualDay extends Day {
     private int hour;
     private int routineFulfillment;
     private int alertLevel;
+    
     /* ----- Classe "ActualDay" - Constructeurs ----- */
     
     /* ----- Classe "ActualDay" - Méthodes ----- */
