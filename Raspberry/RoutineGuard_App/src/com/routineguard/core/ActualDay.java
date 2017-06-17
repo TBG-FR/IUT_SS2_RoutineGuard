@@ -11,7 +11,7 @@ package com.routineguard.core;
  * @author Alexandre Vignand <alexandre.vignand@etu.univ-lyon1.fr>
  */
 
-public class ActualDay extends Day {
+public class ActualDay {
     
     /* ----- Classe "ActualDay" - Attributs ----- */
     private int hour;
