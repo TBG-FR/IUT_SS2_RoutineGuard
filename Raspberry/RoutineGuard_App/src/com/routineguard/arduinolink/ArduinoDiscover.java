@@ -40,7 +40,7 @@ public class ArduinoDiscover {
         }
     }
 
-    public void go() throws Exception {
+    private /*public*/ void go() throws Exception {
         //scan for all devices:
         scanFinished = false;
         LocalDevice.getLocalDevice().getDiscoveryAgent().startInquiry(DiscoveryAgent.GIAC, new DiscoveryListener() {

@@ -40,7 +40,7 @@ public class ArduinoLink {
         }
     }
     
-    public void test() throws Exception {
+    private /*public*/ void go() throws Exception {
         StreamConnection streamConnection = (StreamConnection)
             Connector.open(hc05Url);
         OutputStream os = streamConnection.openOutputStream();
