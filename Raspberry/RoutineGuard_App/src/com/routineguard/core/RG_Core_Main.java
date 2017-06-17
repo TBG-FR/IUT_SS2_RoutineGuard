@@ -55,17 +55,6 @@ public class RG_Core_Main { /* MAIN */
         
 //        ArduinoLink AL1 = new ArduinoLink();
 //        
-////        try {
-////            AL1.test();
-////        } catch (Exception ex) {
-////            Logger.getLogger(ArduinoLink.class.getName()).log(Level.SEVERE, null, ex);
-////        }
-//
-//        try {
-//            new ArduinoDiscover().go();
-//        } catch (Exception ex) {
-//            Logger.getLogger(ArduinoDiscover.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         }
     
 }

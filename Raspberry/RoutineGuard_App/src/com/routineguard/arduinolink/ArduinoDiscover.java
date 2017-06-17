@@ -32,13 +32,13 @@ public class ArduinoDiscover {
     RemoteDevice ArduinoDiscoverdevice;
     String ArduinoDiscoverUrl;
 
-//    public static void main(String[] args) {
-//        try {
-//            new ArduinoDiscover().go();
-//        } catch (Exception ex) {
-//            Logger.getLogger(ArduinoDiscover.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    public static void main(String[] args) {
+        try {
+            new ArduinoDiscover().go();
+        } catch (Exception ex) {
+            Logger.getLogger(ArduinoDiscover.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public void go() throws Exception {
         //scan for all devices:
