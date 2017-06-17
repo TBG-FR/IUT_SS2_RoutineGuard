@@ -13,8 +13,10 @@ package com.routineguard.core;
 public class Event {
     
     /* ----- Classe "Event" - Attributs ----- */
-    private int beginHour;
-    private int duration;
+
+    private int beginHour; //from 0 to 23
+    private int timeSlot; //from 0 to 5
+    private int duration; 
     private int tolerance;
     private EventType eventType;
     private int eventImportance;
@@ -22,8 +24,19 @@ public class Event {
     
     /* ----- Classe "Event" - Constructeurs ----- */
     
-    public Event(int beginHour, int duration, int tolerance, EventType eventType, int eventImportance, String eventDescription) {
-        this.beginHour = beginHour;
+    public Event(Event event) {
+        this.beginHour = event.getBeginHour(); //Implements the calc's LATER
+        this.timeSlot = event.getTimeSlot(); //Implements the calc's LATER
+        this.duration = event.getDuration();
+        this.tolerance = event.getTolerance();
+        this.eventType = event.getEventType();
+        this.eventImportance = event.getEventImportance();
+        this.eventDescription = event.getEventDescription();
+    }
+
+    public Event(int beginHour,int timeSlot, int duration, int tolerance, EventType eventType, int eventImportance, String eventDescription) {
+        this.beginHour = beginHour; //Implements the calc's LATER
+        this.timeSlot = timeSlot; //Implements the calc's LATER
         this.duration = duration;
         this.tolerance = tolerance;
         this.eventType = eventType;
@@ -31,16 +44,44 @@ public class Event {
         this.eventDescription = eventDescription;
     }
     
-    public Event(int beginHour, int duration, int tolerance, EventType eventType, int eventImportance) {
+    public Event(int beginHour, int timeSlot, int duration, int tolerance, EventType eventType, int eventImportance) {
         this.beginHour = beginHour;
+        this.timeSlot = timeSlot;
         this.duration = duration;
         this.tolerance = tolerance;
         this.eventType = eventType;
         this.eventImportance = eventImportance;
     }
     
+    public Event(int hour, int duration, int tolerance, EventType eventType, int eventImportance, String eventDescription) {
+        this.beginHour = hourToInt(hour);
+        this.timeSlot = hourToSlot(hour);
+        this.duration = duration;
+        this.tolerance = tolerance;
+        this.eventType = eventType;
+        this.eventImportance = eventImportance;
+        this.eventDescription = eventDescription;
+    }
+    
+    public Event(int hour, int duration, int tolerance, EventType eventType, int eventImportance) {
+        this.beginHour = hourToInt(hour);
+        this.timeSlot = hourToSlot(hour);
+        this.duration = duration;
+        this.tolerance = tolerance;
+        this.eventType = eventType;
+        this.eventImportance = eventImportance;
+    }
+
     /* ----- Classe "Event" - Méthodes ----- */
-        
+
+    public int hourToInt (int hour){
+        return 0;
+    }
+    
+    public int hourToSlot (int hour){
+        return 0;
+    }
+
     /* ----- Classe "Event" - Accesseurs ----- */
 
     public int getTolerance() {
@@ -70,6 +111,10 @@ public class Event {
     public int getBeginHour() {
         return beginHour;
     }
+
+    public int getTimeSlot () {
+        return timeSlot;
+    }
     
     /* ----- Classe "Event" - Mutateurs ----- */
 
@@ -95,5 +140,10 @@ public class Event {
 
     public void setTolerance(int tolerance) {
         this.tolerance = tolerance;
-    }    
+    }   
+   
+    public void setTimeSlot(int timeSlot){
+        this.timeSlot=timeSlot;
+    }
+
 }

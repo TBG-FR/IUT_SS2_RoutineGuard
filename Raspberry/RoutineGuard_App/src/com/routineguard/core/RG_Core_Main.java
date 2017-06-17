@@ -20,8 +20,7 @@ public class RG_Core_Main { /* MAIN */
      
     public static void main(String[] args) {
        
-            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");
-            
+//            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
 //            MotionSensor MS1=new MotionSensor(7);
 //            for(int i=0;i<1000;i++){
 //                if(MS1.getData()==1){
@@ -55,6 +54,22 @@ public class RG_Core_Main { /* MAIN */
         
 //        ArduinoLink AL1 = new ArduinoLink();
 //        
+
+        /*System.out.println("Tests Routine");
+        Routine routine=new Routine();
+        Event wakeUp=new Event(0,2,0,1,EventType.AWAKENING,2);
+        Event eat=new Event(1,1,2,2,EventType.LUNCH,1);
+        Event sleep=new Event(2,2,0,1,EventType.SLEEPING,2);
+        
+        routine.addEvent(sleep);
+        routine.addEvent(wakeUp);
+        routine.addEvent(eat);
+        
+        routine.affiche();
+        
+        Day currentDay=new Day(0,0,routine);
+        currentDay.afficheModele(); */
+
         }
     
 }
