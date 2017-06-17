@@ -70,6 +70,11 @@ public class RG_Core_Main { /* MAIN */
         Day currentDay=new Day(0,0,routine);
         currentDay.afficheModele(); */
 
+        /*System.out.println("Tests DB");
+
+        DataBase db=new DataBase();
+        db.connection(); */
+            
         }
     
 }
