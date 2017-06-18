@@ -25,6 +25,7 @@ public class Day {
     protected int respect;
     private Slot[] model;
     private Slot[] actualDay;
+    private WaitEvent followingEvent;
     
     /* ----- Classe "Day" - Constructeurs ----- */
     
@@ -38,6 +39,7 @@ public class Day {
     /* ----- Classe "Day" - Méthodes ----- */
     
     private void initDay() {
+        followingEvent=new WaitEvent();
         respect=100;
         model=new Slot[24*6];
         actualDay=new Slot[24*6];
@@ -78,17 +80,10 @@ public class Day {
                 for(int f=0; f< eventDuration ;f++){
                     model[(eventHour*6)+eventSlot+f].setEventID(i);
                     model[(eventHour*6)+eventSlot+f].setShouldBe(true);
-                }
-                
-                
-            }
-            
-            
-
-            
-            
+                }   
+            }   
         }
-        
+        seekEvent();
     }
 
     public void timePass(){
@@ -104,6 +99,7 @@ public class Day {
         else {
             currentTimeSlot++;
         }
+        System.out.println(currentHour + " : " + (currentTimeSlot*10) );
         compareRoutine();
     }
 
@@ -112,18 +108,110 @@ public class Day {
     }
 
     public void compareRoutine() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        if(model[(currentHour*6)+currentTimeSlot].getEventID()!=-1 && model[(currentHour*6)+currentTimeSlot].getEventID()==followingEvent.getEventID()){
+
+            if(followingEvent.getEventState()==0){
+
+                if(model[(currentHour*6)+currentTimeSlot].getShouldBe()==false){
+                    followingEvent.setEventState(1);
+                } else {
+                    followingEvent.setEventState(2);
+                }
+
+            } else if ( followingEvent.getEventState()==1){
+
+                if(model[(currentHour*6)+currentTimeSlot].getShouldBe()==false){
+
+                } else {
+                    followingEvent.setEventState(2);
+                }
+
+            } else if ( followingEvent.getEventState()==2){
+
+                if(model[(currentHour*6)+currentTimeSlot].getShouldBe()==false){
+                    followingEvent.setEventState(3);
+                } else {
+                }
+
+            }
+            
+        } else {
+            if(followingEvent.getEventState()==3){
+                followingEvent.setEventState(4);
+            }
+        }
+
+    System.out.println(followingEvent.getEventState() + " " + followingEvent.getTypeEvent());
+
     }
     
-    public void afficheModele(){
+    public void displayModel(){
         for(int i=0;i<24*6;i++){
             System.out.println("Hour : " + i/6 + " | Slot : " + i%6 + " | EventID : " + model[i].getEventID() + " | shouldBE : " + model[i].getShouldBe());
         }
     }
 
+    private void seekEvent() {
+
+        for(int i=(currentHour*6)+currentTimeSlot;i<24*6;i++){
+            if(model[i].getEventID()!=-1){
+                if(routineToWatch.getRoutine().get(model[i].getEventID()).isAccomplished()==false){
+                    followingEvent.setEventID(model[i].getEventID());
+                    followingEvent.setTypeEvent(routineToWatch.getRoutine().get(model[i].getEventID()).getEventType());
+                    if(model[(currentHour*6)+currentTimeSlot].getEventID()==followingEvent.getEventID()){
+                        if(model[(currentHour*6)+currentTimeSlot].getShouldBe()==false){
+                            followingEvent.setEventState(1);
+                            break;
+                        } else {
+                            followingEvent.setEventState(2);
+                            break;
+                        }
+                    } else {
+                        followingEvent.setEventState(0);
+                        break;
+                    }
+                }
+            }
+            else {
+                followingEvent.setEventID(-1);
+                followingEvent.setTypeEvent(EventType.NONE);
+                followingEvent.setEventState(0);
+            }
+        }
+        System.out.println("Next event : " + followingEvent.getTypeEvent());
+    }
+
+    public void happen(EventType eventType){
+        if(eventType==followingEvent.getTypeEvent()){
+            if(followingEvent.getEventState()==0){
+                System.out.println(eventType + " very early ");
+            }
+            if(followingEvent.getEventState()==1){
+                System.out.println(eventType + " little early ");
+            }
+            if(followingEvent.getEventState()==2){
+                System.out.println(eventType + " right on time ");
+            }
+            if(followingEvent.getEventState()==3){
+                System.out.println(eventType + " little late ");
+            }
+            if(followingEvent.getEventState()==4){
+                System.out.println(eventType + " very late ");
+            }
+        routineToWatch.getRoutine().get(followingEvent.getEventID()).setAccomplished(true);
+        seekEvent();
+        } else {
+            System.out.println( " Unexpected " + eventType );
+        }
+    
+    }
+
     /* ----- Classe "Day" - Accesseurs ----- */    
     
     /* ----- Classe "Day" - Mutateurs ----- */
+
+    
 
     
 

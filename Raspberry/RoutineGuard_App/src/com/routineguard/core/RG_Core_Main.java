@@ -57,19 +57,47 @@ public class RG_Core_Main { /* MAIN */
 
         /*System.out.println("Tests Routine");
         Routine routine=new Routine();
-        Event wakeUp=new Event(0,2,0,1,EventType.AWAKENING,2);
-        Event eat=new Event(1,1,2,2,EventType.LUNCH,1);
+        Event wakeUp=new Event(0,3,0,1,EventType.AWAKENING,2);
+        Event eat=new Event(1,1,2,1,EventType.LUNCH,1);
         Event sleep=new Event(2,2,0,1,EventType.SLEEPING,2);
         
         routine.addEvent(sleep);
         routine.addEvent(wakeUp);
         routine.addEvent(eat);
         
-        routine.affiche();
-        
         Day currentDay=new Day(0,0,routine);
-        currentDay.afficheModele(); */
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.happen(EventType.AWAKENING);
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.happen(EventType.LUNCH);
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.happen(EventType.SLEEPING);
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.happen(EventType.AWAKENING);
+        currentDay.happen(EventType.SLEEPING);
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();
+        currentDay.timePass();*/
 
+        
+    
         /*System.out.println("Tests DB");
 
         DataBase db=new DataBase();
