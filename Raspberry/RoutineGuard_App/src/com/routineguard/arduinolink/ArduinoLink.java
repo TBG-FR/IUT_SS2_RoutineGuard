@@ -30,7 +30,8 @@ public class ArduinoLink {
     
     boolean scanFinished = false;
     //Replace this with your bluetooth URL    
-    String hc05Url = "btspp://d08ba54f422c:1;authenticate=false;encrypt=false;master=false";
+    //String hc05Url = "btspp://d08ba54f422c:1;authenticate=false;encrypt=false;master=false";
+    String bleUrl = "btspp://D08BA54F422C:1;authenticate=false;encrypt=false;master=false";
     
     public static void main(String[] args) {
         try {
@@ -42,7 +43,8 @@ public class ArduinoLink {
     
     private /*public*/ void go() throws Exception {
         StreamConnection streamConnection = (StreamConnection)
-            Connector.open(hc05Url);
+            //Connector.open(hc05Url);
+            Connector.open(bleUrl);
         OutputStream os = streamConnection.openOutputStream();
         InputStream is = streamConnection.openInputStream();
         os.write("1".getBytes()); //'1' means ON and '0' means OFF

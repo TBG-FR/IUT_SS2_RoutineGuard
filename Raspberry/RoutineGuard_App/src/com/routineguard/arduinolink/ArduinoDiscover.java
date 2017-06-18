@@ -49,9 +49,9 @@ public class ArduinoDiscover {
                 try {
                     String name = btDevice.getFriendlyName(false);
                     System.out.format("%s (%s)\n", name, btDevice.getBluetoothAddress());
-                    if (name.matches("HC.*")) {
+                    if (name.matches("Adafruit Bluefruit LE")) {
                         ArduinoDiscoverdevice = btDevice;
-                        System.out.println("got it!");
+                        System.out.println("[----] Device Found ! ( "+name+" : "+btDevice.getBluetoothAddress()+" )");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
