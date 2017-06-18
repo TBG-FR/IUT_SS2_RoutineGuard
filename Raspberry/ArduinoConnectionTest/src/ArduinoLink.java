@@ -2,6 +2,7 @@
  *
  */
 
+import java.awt.Font;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -34,18 +35,11 @@ public class ArduinoLink {
     
     public static void main(String[] args) {
         
-        int sum = 0;
-        for (int i=12; i<=15; i=i+1)
-            sum = sum+i;
-        System.out.println("the sum is " + sum);
-    
-        
-        
-        /*try {
+        try {
             new ArduinoLink().go();
         } catch (Exception ex) {
             Logger.getLogger(ArduinoLink.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }
     
     private /*public*/ void go() throws Exception {
