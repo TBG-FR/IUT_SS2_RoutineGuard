@@ -17,5 +17,6 @@ public enum EventType {
     DINNER,     // Repas du soir
     OTHER_MEAL, // Autre Repas (Goûter, Souper, etc.)
     AWAKENING,  // Réveil
-    SLEEPING;  // Coucher
+    SLEEPING, // Coucher
+    NONE;  //rien a faire 
 }

@@ -21,6 +21,7 @@ public class Event {
     private EventType eventType;
     private int eventImportance;
     private String eventDescription;
+    private boolean accomplished;
     
     /* ----- Classe "Event" - Constructeurs ----- */
     
@@ -115,6 +116,12 @@ public class Event {
     public int getTimeSlot () {
         return timeSlot;
     }
+
+    public boolean isAccomplished() {
+        return accomplished;
+    }
+
+    
     
     /* ----- Classe "Event" - Mutateurs ----- */
 
@@ -146,4 +153,9 @@ public class Event {
         this.timeSlot=timeSlot;
     }
 
+    public void setAccomplished(boolean accomplished) {
+        this.accomplished = accomplished;
+    }
+
+    
 }

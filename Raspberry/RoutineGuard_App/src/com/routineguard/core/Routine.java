@@ -34,7 +34,7 @@ public class Routine {
         Collections.sort(timeTable,Comparator.comparing(Event::getBeginHour));
     }
 
-    public void affiche(){
+    public void display(){
         for(int i=0;i<timeTable.size();i++){
             System.out.println(timeTable.get(i).getEventType());
         }
