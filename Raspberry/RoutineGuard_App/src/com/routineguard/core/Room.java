@@ -15,7 +15,7 @@ public class Room {
     
     /* ----- Classe "Room" - Attributs ----- */
     private boolean userPresence;
-    private int roomType;
+    private RoomType roomType;
     /* ----- Classe "Room" - Constructeurs ----- */
     
     /* ----- Classe "Room" - Méthodes ----- */
