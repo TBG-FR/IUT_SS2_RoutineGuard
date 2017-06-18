@@ -5,6 +5,7 @@
 package com.routineguard.core;
 
 import com.routineguard.arduinolink.*;
+import com.routineguard.gui.DisplayInterface;
 import com.routineguard.sensors.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ public class RG_Core_Main { /* MAIN */
      
     public static void main(String[] args) {
        
+        new DisplayInterface().setVisible(true);
 //            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
 //            MotionSensor MS1=new MotionSensor(7);
 //            for(int i=0;i<1000;i++){

@@ -40,6 +40,7 @@ public class DisplayInterface extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         menu = new javax.swing.JDialog();
         setRoutineButton = new javax.swing.JButton();
@@ -47,6 +48,37 @@ public class DisplayInterface extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         setRoutineDialog = new javax.swing.JDialog();
+        beginHourLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jComboBox15 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         addVisitButton = new javax.swing.JButton();
         addOutingButton = new javax.swing.JButton();
@@ -99,16 +131,145 @@ public class DisplayInterface extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout setRoutineDialogLayout = new javax.swing.GroupLayout(setRoutineDialog.getContentPane());
-        setRoutineDialog.getContentPane().setLayout(setRoutineDialogLayout);
-        setRoutineDialogLayout.setHorizontalGroup(
-            setRoutineDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        setRoutineDialogLayout.setVerticalGroup(
-            setRoutineDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setRoutineDialog.setMaximumSize(new java.awt.Dimension(900, 500));
+        setRoutineDialog.setMinimumSize(new java.awt.Dimension(800, 430));
+        setRoutineDialog.setSize(new java.awt.Dimension(800, 430));
+        setRoutineDialog.getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        beginHourLabel.setText("beginHour : ");
+        setRoutineDialog.getContentPane().add(beginHourLabel, new java.awt.GridBagConstraints());
+
+        jLabel3.setText("timeSlot : ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        setRoutineDialog.getContentPane().add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("duration : ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        setRoutineDialog.getContentPane().add(jLabel4, gridBagConstraints);
+
+        jLabel5.setText("tolerance");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        setRoutineDialog.getContentPane().add(jLabel5, gridBagConstraints);
+
+        jLabel7.setText("eventType : ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 5;
+        setRoutineDialog.getContentPane().add(jLabel7, gridBagConstraints);
+
+        jLabel8.setText("eventDescription : ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 6;
+        setRoutineDialog.getContentPane().add(jLabel8, gridBagConstraints);
+
+        jLabel9.setText("eventImportance : ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 7;
+        setRoutineDialog.getContentPane().add(jLabel9, gridBagConstraints);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        setRoutineDialog.getContentPane().add(jComboBox1, new java.awt.GridBagConstraints());
+
+        jLabel10.setText("  H  ");
+        setRoutineDialog.getContentPane().add(jLabel10, new java.awt.GridBagConstraints());
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        setRoutineDialog.getContentPane().add(jComboBox2, new java.awt.GridBagConstraints());
+
+        jLabel11.setText("  Min");
+        setRoutineDialog.getContentPane().add(jLabel11, new java.awt.GridBagConstraints());
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        setRoutineDialog.getContentPane().add(jComboBox3, gridBagConstraints);
+
+        jLabel12.setText("  H  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        setRoutineDialog.getContentPane().add(jLabel12, gridBagConstraints);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        setRoutineDialog.getContentPane().add(jComboBox4, gridBagConstraints);
+
+        jLabel13.setText("  Min");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 2;
+        setRoutineDialog.getContentPane().add(jLabel13, gridBagConstraints);
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        setRoutineDialog.getContentPane().add(jComboBox5, gridBagConstraints);
+
+        jLabel14.setText("  H  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        setRoutineDialog.getContentPane().add(jLabel14, gridBagConstraints);
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        setRoutineDialog.getContentPane().add(jComboBox6, gridBagConstraints);
+
+        jLabel15.setText("  Min");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 3;
+        setRoutineDialog.getContentPane().add(jLabel15, gridBagConstraints);
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        setRoutineDialog.getContentPane().add(jComboBox7, gridBagConstraints);
+
+        jLabel16.setText("  H  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        setRoutineDialog.getContentPane().add(jLabel16, gridBagConstraints);
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        setRoutineDialog.getContentPane().add(jComboBox8, gridBagConstraints);
+
+        jLabel17.setText("  Min");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 4;
+        setRoutineDialog.getContentPane().add(jLabel17, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 5;
+        setRoutineDialog.getContentPane().add(jLabel19, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 6;
+        setRoutineDialog.getContentPane().add(jLabel21, gridBagConstraints);
+
+        jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OUTING", "VISIT", "BREAKFAST", "LUNCH", "DINNER", "OTHER_MEAL", "AWAKENING", "SLEEPING", "NONE" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 5;
+        setRoutineDialog.getContentPane().add(jComboBox15, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        setRoutineDialog.getContentPane().add(jTextField1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        setRoutineDialog.getContentPane().add(jTextField2, gridBagConstraints);
+
+        int a = 0;
+
+        jButton7.setText("jButton7");
+
+        jButton8.setText("jButton8");
+
+        jLabel6.setText("jLabel6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -292,13 +453,44 @@ public class DisplayInterface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addOutingButton;
     private javax.swing.JButton addVisitButton;
+    private javax.swing.JLabel beginHourLabel;
     private javax.swing.JLabel date_Label;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox15;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JDialog menu;
     private javax.swing.JButton rebootButton;
     private javax.swing.JButton setRoutineButton;
