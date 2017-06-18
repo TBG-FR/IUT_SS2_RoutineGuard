@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class History {
     
     /* ----- Classe "History" - Attributs ----- */
-    private ArrayList<ActualDay>ActualDays;
+    private ArrayList<ActualDay> PastDays; // Contient seulement les jours passés ???
+    
     /* ----- Classe "History" - Constructeurs ----- */
     
     /* ----- Classe "History" - Méthodes ----- */
