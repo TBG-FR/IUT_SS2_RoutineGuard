@@ -26,6 +26,7 @@ public class Day {
     private Slot[] model;
     private Slot[] actualDay;
     private WaitEvent followingEvent;
+    private CurrentEvent currentEvent;
     
     /* ----- Classe "Day" - Constructeurs ----- */
     
@@ -39,6 +40,8 @@ public class Day {
     /* ----- Classe "Day" - Méthodes ----- */
     
     private void initDay() {
+        currentEvent= new CurrentEvent();
+        currentEvent.setDuration(-1);
         followingEvent=new WaitEvent();
         respect=100;
         model=new Slot[24*6];
@@ -49,39 +52,47 @@ public class Day {
         }
         int nbEvents=routineToWatch.getRoutine().size();
         for(int i=0;i<nbEvents;i++) {
-
+            
             int eventHour=routineToWatch.getRoutine().get(i).getBeginHour();
             int eventSlot=routineToWatch.getRoutine().get(i).getTimeSlot();
             int eventTolerance=routineToWatch.getRoutine().get(i).getTolerance();
             int eventDuration=routineToWatch.getRoutine().get(i).getDuration();
-            
-            for(int f=1; f< eventTolerance+1 ;f++){
-                model[(eventHour*6)+eventSlot-f].setEventID(i);
-                model[(eventHour*6)+eventSlot-f].setShouldBe(false);
-            }
-
-            if(eventDuration ==0){
-
+            if(eventHour!=-1){
+                for(int f=1; f< eventTolerance+1 ;f++){
+                    model[(eventHour*6)+eventSlot-f].setEventID(i);
+                    model[(eventHour*6)+eventSlot-f].setShouldBe(false);
+                }
                 for(int f=1; f< eventTolerance+1 ;f++){
                     model[(eventHour*6)+eventSlot+f].setEventID(i);
                     model[(eventHour*6)+eventSlot+f].setShouldBe(false);
                 }
-                
+
                 model[(eventHour*6)+eventSlot].setEventID(i);
                 model[(eventHour*6)+eventSlot].setShouldBe(true);
-            
-            } else {
 
-                for(int f=1; f< eventTolerance+1 ;f++){
-                    model[(eventHour*6)+eventDuration-1+eventSlot+f].setEventID(i);
-                    model[(eventHour*6)+eventDuration-1+eventSlot+f].setShouldBe(false);
-                }
+                /*if(eventDuration ==0){
 
-                for(int f=0; f< eventDuration ;f++){
-                    model[(eventHour*6)+eventSlot+f].setEventID(i);
-                    model[(eventHour*6)+eventSlot+f].setShouldBe(true);
-                }   
-            }   
+                    for(int f=1; f< eventTolerance+1 ;f++){
+                        model[(eventHour*6)+eventSlot+f].setEventID(i);
+                        model[(eventHour*6)+eventSlot+f].setShouldBe(false);
+                    }
+
+                    model[(eventHour*6)+eventSlot].setEventID(i);
+                    model[(eventHour*6)+eventSlot].setShouldBe(true);
+
+                } else {
+
+                    for(int f=1; f< eventTolerance+1 ;f++){
+                        model[(eventHour*6)+eventDuration-1+eventSlot+f].setEventID(i);
+                        model[(eventHour*6)+eventDuration-1+eventSlot+f].setShouldBe(false);
+                    }
+
+                    for(int f=0; f< eventDuration ;f++){
+                        model[(eventHour*6)+eventSlot+f].setEventID(i);
+                        model[(eventHour*6)+eventSlot+f].setShouldBe(true);
+                    }   
+                }*/
+            }
         }
         seekEvent();
     }
@@ -108,7 +119,14 @@ public class Day {
     }
 
     public void compareRoutine() {
-
+        
+        if(currentEvent.getDuration()!=-1){
+            System.out.println("current : " + currentEvent.getEventType());
+            currentEvent.setDuration(currentEvent.getDuration()+1);
+            if(currentEvent.getDuration()>currentEvent.getExpectedDuration()){
+                System.out.println(currentEvent.getEventType() + " too long ");
+            }
+        }
         if(model[(currentHour*6)+currentTimeSlot].getEventID()!=-1 && model[(currentHour*6)+currentTimeSlot].getEventID()==followingEvent.getEventID()){
 
             if(followingEvent.getEventState()==0){
@@ -183,6 +201,7 @@ public class Day {
     }
 
     public void happen(EventType eventType){
+
         if(eventType==followingEvent.getTypeEvent()){
             if(followingEvent.getEventState()==0){
                 System.out.println(eventType + " very early ");
@@ -205,6 +224,50 @@ public class Day {
             System.out.println( " Unexpected " + eventType );
         }
     
+    }
+
+    public void happen(EventType eventType,int begin){
+        if(begin==-1||begin==0){
+            if(eventType==followingEvent.getTypeEvent()){
+                if(followingEvent.getEventState()==0){
+                    System.out.println(eventType + " very early ");
+                }
+                if(followingEvent.getEventState()==1){
+                    System.out.println(eventType + " little early ");
+                }
+                if(followingEvent.getEventState()==2){
+                    System.out.println(eventType + " right on time ");
+                }
+                if(followingEvent.getEventState()==3){
+                    System.out.println(eventType + " little late ");
+                }
+                if(followingEvent.getEventState()==4){
+                    System.out.println(eventType + " very late ");
+                }
+                routineToWatch.getRoutine().get(followingEvent.getEventID()).setAccomplished(true);
+                if(begin==-1){
+                    seekEvent();
+                }
+            } else {
+                System.out.println( " Unexpected " + eventType );
+            }
+        } 
+        if (begin==0) {
+            currentEvent.setEventType(eventType);
+            int nbEvents=routineToWatch.getRoutine().size();
+            for(int i=0;i<nbEvents;i++) {
+                if(routineToWatch.getRoutine().get(i).getEventType()==eventType){
+                    currentEvent.setExpectedDuration(routineToWatch.getRoutine().get(i).getDuration());
+                    currentEvent.setDuration(0);
+                    currentEvent.setAlertLevel(routineToWatch.getRoutine().get(i).getEventImportance());
+                }
+            }
+        } 
+        if (begin !=0&&begin!=-1){
+            seekEvent();
+            currentEvent.setDuration(-1);
+            System.out.println( " End of " + eventType );
+        }
     }
 
     /* ----- Classe "Day" - Accesseurs ----- */    
