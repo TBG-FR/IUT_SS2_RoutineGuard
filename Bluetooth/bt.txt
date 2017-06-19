@@ -1,1 +1,0 @@
-/org/bluez/hci0/dev_D0_8B_A5_4F_42_2C
