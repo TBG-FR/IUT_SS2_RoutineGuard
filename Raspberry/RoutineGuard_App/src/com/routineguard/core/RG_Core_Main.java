@@ -21,7 +21,9 @@ public class RG_Core_Main { /* MAIN */
      
     public static void main(String[] args) {
        
-        new DisplayInterface().setVisible(true);
+        Routine routine = new Routine();
+        DisplayInterface myInterface = new DisplayInterface(routine);
+        myInterface.setVisible(true);
 //            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
 //            MotionSensor MS1=new MotionSensor(7);
 //            for(int i=0;i<1000;i++){
