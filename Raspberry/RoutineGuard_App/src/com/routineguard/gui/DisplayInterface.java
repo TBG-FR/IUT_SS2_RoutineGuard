@@ -59,18 +59,18 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        comboBeginHour = new javax.swing.JComboBox<String>();
+        comboBeginHour = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        comboBeginMin = new javax.swing.JComboBox<String>();
+        comboBeginMin = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        comboDurationHour = new javax.swing.JComboBox<String>();
+        comboDurationHour = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        comboDurationMin = new javax.swing.JComboBox<String>();
+        comboDurationMin = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        comboTolerance = new javax.swing.JComboBox<String>();
+        comboTolerance = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        comboEventType = new javax.swing.JComboBox<String>();
+        comboEventType = new javax.swing.JComboBox<>();
         textFieldDescription = new javax.swing.JTextField();
         textFieldImportance = new javax.swing.JTextField();
         validEventButton = new javax.swing.JButton();
@@ -78,6 +78,10 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        deleteEventDialog = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        textFieldDeleteEvent = new javax.swing.JTextField();
+        deleteEventvalidButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         addVisitButton = new javax.swing.JButton();
         addOutingButton = new javax.swing.JButton();
@@ -131,7 +135,6 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         });
 
         setRoutineDialog.setMaximumSize(new java.awt.Dimension(900, 500));
-        setRoutineDialog.setMinimumSize(new java.awt.Dimension(800, 430));
         setRoutineDialog.setSize(new java.awt.Dimension(800, 430));
         setRoutineDialog.getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -170,7 +173,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel9, gridBagConstraints);
 
-        comboBeginHour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        comboBeginHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(comboBeginHour, gridBagConstraints);
@@ -180,7 +183,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel10, gridBagConstraints);
 
-        comboBeginMin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "10", "20", "30", "40", "50" }));
+        comboBeginMin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(comboBeginMin, gridBagConstraints);
@@ -190,7 +193,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel11, gridBagConstraints);
 
-        comboDurationHour.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        comboDurationHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -202,7 +205,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel14, gridBagConstraints);
 
-        comboDurationMin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "10", "20", "30", "40", "50" }));
+        comboDurationMin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "10", "20", "30", "40", "50" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -214,7 +217,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel15, gridBagConstraints);
 
-        comboTolerance.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "1", "2", "3", "4" }));
+        comboTolerance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -226,7 +229,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.gridy = 6;
         setRoutineDialog.getContentPane().add(jLabel21, gridBagConstraints);
 
-        comboEventType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "OUTING", "VISIT", "BREAKFAST", "LUNCH", "DINNER", "OTHER_MEAL", "AWAKENING", "SLEEPING", "NONE" }));
+        comboEventType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OUTING", "VISIT", "BREAKFAST", "LUNCH", "DINNER", "OTHER_MEAL", "AWAKENING", "SLEEPING", "NONE" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -276,6 +279,52 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         jButton8.setText("jButton8");
 
         jLabel6.setText("jLabel6");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Rentrez le luméro de l'event à supprimez :");
+
+        textFieldDeleteEvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldDeleteEventActionPerformed(evt);
+            }
+        });
+
+        deleteEventvalidButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        deleteEventvalidButton.setText("Valider");
+        deleteEventvalidButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEventvalidButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout deleteEventDialogLayout = new javax.swing.GroupLayout(deleteEventDialog.getContentPane());
+        deleteEventDialog.getContentPane().setLayout(deleteEventDialogLayout);
+        deleteEventDialogLayout.setHorizontalGroup(
+            deleteEventDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(deleteEventDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteEventDialogLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(textFieldDeleteEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteEventDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteEventvalidButton)
+                .addGap(140, 140, 140))
+        );
+        deleteEventDialogLayout.setVerticalGroup(
+            deleteEventDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteEventDialogLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(textFieldDeleteEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteEventvalidButton)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -419,6 +468,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         // TODO add your handling code here:
         menu.setVisible(false);
         displayRoutineInit();
+        displayRoutine.setVisible(true);
     }//GEN-LAST:event_setRoutineButtonActionPerformed
 
     private void validEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validEventButtonActionPerformed
@@ -476,8 +526,25 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         routineInUse.addEvent(event);
         setRoutineDialog.setVisible(false);
         displayRoutineInit();
+        displayRoutine.setVisible(true);
 
     }//GEN-LAST:event_validEventButtonActionPerformed
+
+    private void textFieldDeleteEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldDeleteEventActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldDeleteEventActionPerformed
+
+    private void deleteEventvalidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEventvalidButtonActionPerformed
+        // TODO add your handling code here:
+        if (Integer.parseInt(textFieldDeleteEvent.getText()) <= routineInUse.getRoutine().size()){
+            routineInUse.deleteEvent(Integer.parseInt(textFieldDeleteEvent.getText()));
+            displayRoutine.setVisible(false);
+            displayRoutineInit();
+            deleteEventDialog.setVisible(false);
+            displayRoutine.setVisible(true);
+
+        }            
+    }//GEN-LAST:event_deleteEventvalidButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,6 +592,8 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private javax.swing.JComboBox<String> comboEventType;
     private javax.swing.JComboBox<String> comboTolerance;
     private javax.swing.JLabel date_Label;
+    private javax.swing.JDialog deleteEventDialog;
+    private javax.swing.JButton deleteEventvalidButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -537,6 +606,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -550,6 +620,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private javax.swing.JButton rebootButton;
     private javax.swing.JButton setRoutineButton;
     private javax.swing.JDialog setRoutineDialog;
+    private javax.swing.JTextField textFieldDeleteEvent;
     private javax.swing.JTextField textFieldDescription;
     private javax.swing.JTextField textFieldImportance;
     private javax.swing.JButton validEventButton;
@@ -590,7 +661,9 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
                 tempEndMin -= 60;
             }
             
-            tempLabel = "Event " +  i + " | " + routineInUse.getRoutine().get(i).getStringEventType() + " de " + tempStartHour + "h " + tempStartMin + " à " + tempEndHour + "h " + tempEndMin + "    ";
+            tempLabel = "Event " +  (i) + " | " + routineInUse.getRoutine().get(i).
+            getStringEventType() + " de " + tempStartHour + "h " + tempStartMin 
+                             + " à " + tempEndHour + "h " + tempEndMin + "    ";
             
             listLabel.add(new JLabel(tempLabel));
             constr.gridx = 0;
@@ -601,11 +674,11 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         addEvent = new JButton("Ajouter un événement");
         addEvent.addActionListener(this);
         deleteEvent = new JButton("Supprimer un événement");
+        deleteEvent.addActionListener(this);
         constr.gridy = routineInUse.getRoutine().size() + 2;
         pano.add(deleteEvent);
         pano.add(addEvent);
         displayRoutine.pack();
-        displayRoutine.setVisible(true);
     }
     
     public void displayHour(){
@@ -618,7 +691,12 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addEvent){
             displayRoutine.setVisible(false);
+            setRoutineDialog.pack();
             setRoutineDialog.setVisible(true);
+        }
+        if (e.getSource() == deleteEvent){
+            deleteEventDialog.pack();
+            deleteEventDialog.setVisible(true);
         }
     }
 }
