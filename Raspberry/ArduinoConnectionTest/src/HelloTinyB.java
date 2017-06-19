@@ -196,6 +196,7 @@ public class HelloTinyB {
         
         // <editor-fold desc="CODE : Link with UART Service and it's Characteristics">
         
+        // https://learn.adafruit.com/adafruit-feather-32u4-bluefruit-le/uart-service
         BluetoothGattService UART_Service = getService(ArduinoDevice, "6e400001-b5a3-f393-e0a9-e50e24dcca9e");
         if (UART_Service == null) {
             System.err.println("Unable to find the UART Service... Can't communicate with Arduino !");
@@ -204,7 +205,9 @@ public class HelloTinyB {
         }
         System.out.println("Service UART Service found ! (" + UART_Service.getUUID()+")");
         
+        // "This characteristic is used to send data back to the sensor node"
         BluetoothGattCharacteristic TX_Write = getCharacteristic(UART_Service, "6e400002-b5a3-f393-e0a9-e50e24dcca9e");
+        // "This characteristic is used to send data out to the connected Central device"
         BluetoothGattCharacteristic RX_Read = getCharacteristic(UART_Service, "6e400003-b5a3-f393-e0a9-e50e24dcca9e");
         
         if (TX_Write == null || RX_Read == null) {
@@ -216,7 +219,32 @@ public class HelloTinyB {
         System.out.println("UART_Service caracteristics found !");
         
         // </editor-fold>
-//
+
+        //byte[] config = { 0x01 };
+        byte[] config = { 2 };
+        TX_Write.writeValue(config);
+//        
+//        Thread.sleep(1000);
+//            
+//            byte[] tempRaw = RX_Read.readValue();
+//            System.out.print("Temp raw = {");
+//            for (byte b : tempRaw) {
+//                System.out.print(String.format("%02x,", b));
+//            }
+//            System.out.print("}");
+        
+
+//            while (running) {
+//            
+//            byte[] tempRaw = RX_Read.readValue();
+//            System.out.print("Temp raw = {");
+//            for (byte b : tempRaw) {
+//                System.out.print(String.format("%02x,", b));
+//            }
+//            System.out.print("}");
+//            }
+
+
 //        /*
 //         * Turn on the Temperature Service by writing 1 in the configuration characteristic, as mentioned in the PDF
 //         * mentioned above. We could also modify the update interval, by writing in the period characteristic, but the
