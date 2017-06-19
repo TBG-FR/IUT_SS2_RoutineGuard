@@ -29,6 +29,9 @@ public abstract class RG_Sensor {
             this.gp=new GrovePi();
     }
     
+    // Constructor for non-GrovePi sensors
+    public RG_Sensor() { this.gp=null; this.pin=-1; };
+    
     /* ----- Classe "Sensor" - Méthodes ----- */
     public abstract double getData();
  
