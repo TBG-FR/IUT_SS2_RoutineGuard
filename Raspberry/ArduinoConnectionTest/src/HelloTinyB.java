@@ -2,6 +2,9 @@
     Here we copied the "HelloTinyB.java" file content.
     "HelloTinyB" is an Java example coming from Intel's TinyB Library.
     We then adapted it for our needs and our device (Adafruit's Feather 32u4).
+
+    * "sensor" is now "ArduinoDevice"
+    * "tempService" is now "UART_Service"
 */
 
 // Output & Input LIBS
@@ -23,7 +26,8 @@ public class HelloTinyB {
         System.out.println();
     }
 
-    // CUSTOM - START - Divided "printDevice" original methode into 3 "submethods" -----
+    // <editor-fold desc="CODE : Divided "printDevice" original methode into 3 "submethods" ">
+    
     static String getDeviceAddress(BluetoothDevice device) {        
         return device.getAddress();
     }
@@ -34,7 +38,7 @@ public class HelloTinyB {
         return device.getConnected();
     }
     
-    // CUSTOM - END --------------------------------------------------------------------
+    // </editor-fold>
 
     /*
      * After discovery is started, new devices will be detected. We can get a list of all devices through the manager's
@@ -113,6 +117,8 @@ public class HelloTinyB {
      */
     public static void main(String[] args) throws InterruptedException {
 
+        // <editor-fold desc="CODE : Bluetooth Connection to Arduino Device">
+        
         if (args.length < 1) {
             System.err.println("Run with <device_address> argument");
             System.exit(-1);
@@ -133,7 +139,7 @@ public class HelloTinyB {
 
         System.out.println("The discovery started: " + (discoveryStarted ? "true" : "false"));
         
-        BluetoothDevice sensor = getDevice(args[0]);
+        BluetoothDevice ArduinoDevice = getDevice(args[0]);
 
         /*
          * After we find the device we can stop looking for other devices.
@@ -144,7 +150,7 @@ public class HelloTinyB {
             System.err.println("Discovery could not be stopped.");
         }
 
-        if (sensor == null) {
+        if (ArduinoDevice == null) {
             System.err.println("No sensor found with the provided address.");
             System.exit(-1);
         }
@@ -152,13 +158,13 @@ public class HelloTinyB {
         //REMOVED//System.out.print("Found device: ");
         //REMOVED//printDevice(sensor);
 
-        if (sensor.connect()) {
+        if (ArduinoDevice.connect()) {
             //REMOVED//System.out.println("Sensor with the provided address connected");
             System.out.println(" ----- ----- ----- ----- ----- ");
             System.out.println("Established connection with the following device :");
-            System.out.println("Name : "+getDeviceName(sensor));
-            System.out.println("Address : "+getDeviceAddress(sensor));
-            System.out.println("Connected ? : "+getDeviceConnected(sensor));        
+            System.out.println("Name : "+getDeviceName(ArduinoDevice));
+            System.out.println("Address : "+getDeviceAddress(ArduinoDevice));
+            System.out.println("Connected ? : "+getDeviceConnected(ArduinoDevice));        
             System.out.println(" ----- ----- ----- ----- ----- ");
         }
         else {
@@ -166,27 +172,9 @@ public class HelloTinyB {
             System.exit(-1);
         }
         
-        /*
-        StreamConnection streamConnection = (StreamConnection)
-        Connector.open(hc05Url);
-        OutputStream os = streamConnection.openOutputStream();
-        InputStream is = streamConnection.openInputStream();
-        os.write("1".getBytes()); //'1' means ON and '0' means OFF
-        os.close();
-        byte[] b = new byte[200];
-        Thread.sleep(200);
-        is.read(b);
-        is.close();
-        streamConnection.close();
-        System.out.println("received " + new String(b));
-        */
+        // </editor-fold>
         
-        
-        
-        
-
-        /* ORIGINAL CODE FROM THE INTEL EXAMPLE */
-        
+        // <editor-fold defaultstate="collapsed" desc="REMOVED : Original code from Intel : "Lock" things.">
         /*
         Lock lock = new ReentrantLock();
         Condition cv = lock.newCondition();
@@ -202,29 +190,32 @@ public class HelloTinyB {
                 }
 
             }
-        });*/
+        });
+        */
+        // </editor-fold>
+        
+        // <editor-fold desc="CODE : Link with UART Service and it's Characteristics">
+        
+        BluetoothGattService UART_Service = getService(ArduinoDevice, "6e400001-b5a3-f393-e0a9-e50e24dcca9e");
+        if (UART_Service == null) {
+            System.err.println("Unable to find the UART Service... Can't communicate with Arduino !");
+            //REMOVED//sensor.disconnect();
+            System.exit(-1);
+        }
+        System.out.println("Service UART Service found ! (" + UART_Service.getUUID()+")");
+        
+        BluetoothGattCharacteristic TX_Write = getCharacteristic(UART_Service, "6e400002-b5a3-f393-e0a9-e50e24dcca9e");
+        BluetoothGattCharacteristic RX_Read = getCharacteristic(UART_Service, "6e400003-b5a3-f393-e0a9-e50e24dcca9e");
+        
+        if (TX_Write == null || RX_Read == null) {
+            System.err.println("Error while trying to find UART_Service's caracteristics.");
+            //REMOVED//ArduinoDevice.disconnect();
+            System.exit(-1);
+        }
 
-
-//        BluetoothGattService tempService = getService(sensor, "f000aa00-0451-4000-b000-000000000000");
-//
-//        if (tempService == null) {
-//            System.err.println("This device does not have the temperature service we are looking for.");
-//            sensor.disconnect();
-//            System.exit(-1);
-//        }
-//        System.out.println("Found service " + tempService.getUUID());
-//
-//        BluetoothGattCharacteristic tempValue = getCharacteristic(tempService, "f000aa01-0451-4000-b000-000000000000");
-//        BluetoothGattCharacteristic tempConfig = getCharacteristic(tempService, "f000aa02-0451-4000-b000-000000000000");
-//        BluetoothGattCharacteristic tempPeriod = getCharacteristic(tempService, "f000aa03-0451-4000-b000-000000000000");
-//
-//        if (tempValue == null || tempConfig == null || tempPeriod == null) {
-//            System.err.println("Could not find the correct characteristics.");
-//            sensor.disconnect();
-//            System.exit(-1);
-//        }
-//
-//        System.out.println("Found the temperature characteristics");
+        System.out.println("UART_Service caracteristics found !");
+        
+        // </editor-fold>
 //
 //        /*
 //         * Turn on the Temperature Service by writing 1 in the configuration characteristic, as mentioned in the PDF
