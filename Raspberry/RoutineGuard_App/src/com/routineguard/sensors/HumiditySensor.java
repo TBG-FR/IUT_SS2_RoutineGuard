@@ -17,7 +17,7 @@ import grovepi.Pin;
 public class HumiditySensor extends RG_Sensor {
     
     /* ----- Classe "TemperatureSensor" - Attributs ----- */
-    TemperatureAndHumiditySensor H;
+    TemperatureAndHumiditySensor H; /* OUI */
     
     /* ----- Classe "TemperatureSensor" - Constructeurs ----- */
     public HumiditySensor(int _pin) {
