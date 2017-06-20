@@ -45,6 +45,8 @@ public class House {
         rooms.add(new Room(RoomType.BEDROOM));
         rooms.add(new Room(RoomType.BATHROOM));
         rooms.add(new Room(RoomType.CORRIDOR));
+        rooms.add(new Room(RoomType.TOILETS));
+        rooms.get(getRoom(RoomType.TOILETS)).addContactSensor(7);
         rooms.get(getRoom(RoomType.KITCHEN)).addMotionSensor(5);
         rooms.get(getRoom(RoomType.KITCHEN)).addContactSensor(6);
         rooms.get(getRoom(RoomType.BEDROOM)).addMotionSensor(2);
@@ -83,7 +85,7 @@ public class House {
                 timePassed=0;
             }
             
-            if(timePassed==3){
+            if(timePassed==4){
                 
                 passedInRoom=0;
                 System.out.println("Dans le couloir");
@@ -99,13 +101,25 @@ public class House {
                 }
                 
                 if(rooms.get(getRoom(RoomType.BATHROOM)).isUserPresence()==true){
-                    currentDay.happen(EventType.SHOWER,1);
+                    
                     rooms.get(getRoom(RoomType.BATHROOM)).setUserPresence(false);
+                   
                 }
                 
+                if(currentEvent==EventType.SHOWER){
+                        currentDay.happen(EventType.SHOWER,1);
+                        currentEvent=EventType.NONE;
+                    }
+                
                 if(rooms.get(getRoom(RoomType.KITCHEN)).isUserPresence()==true){
-                    currentDay.happen(EventType.LUNCH,1);
+                    
                     rooms.get(getRoom(RoomType.KITCHEN)).setUserPresence(false);
+                         
+                }
+                
+                if(currentEvent==EventType.LUNCH){
+                        currentDay.happen(EventType.LUNCH,1);
+                        currentEvent=EventType.NONE;
                 }
             
                 for(int i=0;i<rooms.size();i++){
@@ -136,6 +150,11 @@ public class House {
                 System.out.println("Dans la chambre");
                 rooms.get(getRoom(RoomType.BEDROOM)).setUserPresence(true);
                 rooms.get(getRoom(RoomType.CORRIDOR)).setUserPresence(false);
+                
+                if(currentEvent==EventType.SHOWER){
+                    currentDay.happen(EventType.SHOWER,1);
+                    currentEvent=EventType.NONE;
+                }
                 
             }
             
@@ -171,6 +190,11 @@ public class House {
                     currentEvent=EventType.NONE;
                 }
                 
+                if(currentEvent==EventType.LUNCH){
+                    currentDay.happen(EventType.LUNCH,1);
+                    currentEvent=EventType.NONE;
+                }
+                
             }
             
             for(int i=0;i<rooms.size();i++){
@@ -194,7 +218,7 @@ public class House {
             }
             
             
-            if(timePassed==3){
+            if(timePassed==1){
                 passedInRoom=0;
                 System.out.println("Dans la salle de bain");
                 rooms.get(getRoom(RoomType.BATHROOM)).setUserPresence(true);
@@ -246,6 +270,46 @@ public class House {
                 System.out.println("mange");
                 currentDay.happen(EventType.LUNCH,0);
                 currentEvent=EventType.LUNCH;
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        if (rooms.get(getRoom(RoomType.TOILETS)).getContactSensor().getData()==1){
+            
+            System.out.println("Is in Toilets");
+            timePassed=0;
+            rooms.get(getRoom(RoomType.TOILETS)).setUserPresence(true);
+
+            if(currentEvent==EventType.LUNCH){
+                currentDay.happen(EventType.LUNCH,1);
+                currentEvent=EventType.NONE;
+            }
+            
+            if(currentEvent==EventType.SHOWER){
+                    currentDay.happen(EventType.SHOWER,1);
+                    currentEvent=EventType.NONE;
+            }
+            
+            currentDay.happen(EventType.TOILETS,0);
+            currentEvent=EventType.TOILETS;
+            
+            for(int i=0;i<rooms.size();i++){
+                if(rooms.get(i).getRoomType()!=RoomType.TOILETS){
+                    rooms.get(i).setUserPresence(false);
+                }
+            }    
+        } else {
+            if(currentEvent==EventType.TOILETS){
+                System.out.println("End of TOILETS");
+                currentDay.happen(EventType.TOILETS,1);
+                currentEvent=EventType.NONE;
             }
         }
     }
