@@ -4,7 +4,6 @@
 
 package com.routineguard.core;
 
-import com.routineguard.arduinolink.*;
 import com.routineguard.sensors.*;
 import java.util.Timer;
 import java.util.TimerTask;
