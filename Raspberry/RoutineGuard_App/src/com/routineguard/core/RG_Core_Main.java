@@ -52,7 +52,7 @@ public class RG_Core_Main { /* MAIN */
 //            System.out.println("Température : "+T1.getData()+" °C");
 //            System.out.println("Humidité : "+H1.getData()+" %");
 //            
-//            BrightnessSensor BS=new BrightnessSensor(5);
+//            BrightnessSensor BS=new BrightnessSensor(8);
 //            System.out.println("Luminosité : "+BS.getData()+" %");
         
         

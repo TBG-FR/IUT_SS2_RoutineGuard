@@ -1,19 +1,31 @@
 /*
- *
- */
+DisplayInterface class manage all our graphical Interface.
+It allows us to configure the routine.
+*/
 
 package com.routineguard.gui;
 
 import com.routineguard.core.*;
+import com.routineguard.sensors.BrightnessSensor;
+import com.routineguard.sensors.HumiditySensor;
+import com.routineguard.sensors.TemperatureSensor;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,13 +40,15 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
      * Creates new form DisplaytInterface
      */
     public DisplayInterface(Routine _routine) {
+
+        isUserAtHome = true;
+        isUserAlone = true;
         this.routineInUse = _routine;
         this.setTitle("RoutineGuard");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
-        displayHour();
+        displayInformation();
         displayRoutineInit();
-
     }
 
     /**
@@ -50,7 +64,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         menu = new javax.swing.JDialog();
         setRoutineButton = new javax.swing.JButton();
         rebootButton = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        shutDownButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         setRoutineDialog = new javax.swing.JDialog();
         beginHourLabel = new javax.swing.JLabel();
@@ -82,13 +96,20 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         jLabel2 = new javax.swing.JLabel();
         textFieldDeleteEvent = new javax.swing.JTextField();
         deleteEventvalidButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        callAssisstance = new javax.swing.JButton();
         addVisitButton = new javax.swing.JButton();
         addOutingButton = new javax.swing.JButton();
         date_Label = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        temperatureLabel = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        humidityLabel = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        brightnessLabel = new javax.swing.JLabel();
+        imgPanel = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
 
         setRoutineButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         setRoutineButton.setText("Configurez la routine");
@@ -106,14 +127,19 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setText("Arrêter");
+        shutDownButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        shutDownButton.setText("Arrêter");
+        shutDownButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shutDownButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu.getContentPane());
         menu.getContentPane().setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(shutDownButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(rebootButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(setRoutineButton, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
         );
@@ -124,7 +150,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rebootButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(shutDownButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jButton3.setText("Arrêter");
@@ -134,40 +160,39 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
             }
         });
 
-        setRoutineDialog.setMaximumSize(new java.awt.Dimension(900, 500));
         setRoutineDialog.setSize(new java.awt.Dimension(800, 430));
         setRoutineDialog.getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        beginHourLabel.setText("beginHour : ");
+        beginHourLabel.setText("Heure de début : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(beginHourLabel, gridBagConstraints);
 
-        jLabel4.setText("duration : ");
+        jLabel4.setText("Durée : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel4, gridBagConstraints);
 
-        jLabel5.setText("tolerance");
+        jLabel5.setText("Tolérance : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel5, gridBagConstraints);
 
-        jLabel7.setText("eventType : ");
+        jLabel7.setText("Type d'événement : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("eventDescription : ");
+        jLabel8.setText("Description : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         setRoutineDialog.getContentPane().add(jLabel8, gridBagConstraints);
 
-        jLabel9.setText("eventImportance : ");
+        jLabel9.setText("Importance : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -229,7 +254,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         gridBagConstraints.gridy = 6;
         setRoutineDialog.getContentPane().add(jLabel21, gridBagConstraints);
 
-        comboEventType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "OUTING", "VISIT", "BREAKFAST", "LUNCH", "DINNER", "OTHER_MEAL", "AWAKENING", "SLEEPING", "NONE" }));
+        comboEventType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sortie", "Visite", "Petit-Déjeuner", "Déjeuner", "Dinner", "Autre-Repas", "Lever", "Coucher", "Autre" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -327,14 +352,15 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/routineguard/gui/telephone.png"))); // NOI18N
-        jButton1.setText(" Téléassistance");
-        jButton1.setActionCommand("jButton2");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        callAssisstance.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        callAssisstance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/routineguard/gui/telephone.png"))); // NOI18N
+        callAssisstance.setText(" Téléassistance");
+        callAssisstance.setActionCommand("jButton2");
+        callAssisstance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                callAssisstanceActionPerformed(evt);
             }
         });
 
@@ -368,8 +394,17 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         jLabel1.setMinimumSize(new java.awt.Dimension(100, 100));
         jLabel1.setPreferredSize(new java.awt.Dimension(100, 100));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel1.setForeground(new java.awt.Color(153, 0, 153));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Température : ");
+
+        temperatureLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        temperatureLabel.setText("18  C");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Humidité : ");
+
+        humidityLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        humidityLabel.setText("18  %");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/routineguard/gui/Reglage.PNG"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -378,75 +413,135 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
             }
         });
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setText("Luminosité : ");
+
+        brightnessLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        brightnessLabel.setText("18  %");
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/routineguard/gui/background.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout imgPanelLayout = new javax.swing.GroupLayout(imgPanel);
+        imgPanel.setLayout(imgPanelLayout);
+        imgPanelLayout.setHorizontalGroup(
+            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel20)
+        );
+        imgPanelLayout.setVerticalGroup(
+            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(date_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(82, 82, 82)
+                        .addComponent(date_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(brightnessLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(humidityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(56, 56, 56)
+                                .addComponent(temperatureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                        .addComponent(callAssisstance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(addVisitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(addOutingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(addOutingButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(imgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(addVisitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(addOutingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(date_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(callAssisstance, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(temperatureLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(humidityLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addVisitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(brightnessLabel))
+                .addGap(28, 28, 28)
+                .addComponent(addOutingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(imgPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void callAssisstanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callAssisstanceActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_callAssisstanceActionPerformed
 
     private void addVisitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVisitButtonActionPerformed
         // TODO add your handling code here:
+        if (isUserAlone == true)
+            addVisitButton.setBackground(Color.green);
+        
+        else
+            addVisitButton.setBackground(null);
+            
+        isUserAlone = !isUserAlone;
+        /*      Programmer en avance les visites.
         Boolean test = true;
         AddVisite visite = new AddVisite(this, test, EventType.VISIT);
         visite.setVisible(true);
+        */
     }//GEN-LAST:event_addVisitButtonActionPerformed
 
     private void addOutingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOutingButtonActionPerformed
         // TODO add your handling code here:
+        if (isUserAtHome == true)
+            addOutingButton.setBackground(Color.green);
+        
+        else 
+            addOutingButton.setBackground(null);
+        
+        isUserAtHome = !isUserAtHome;
+        
+        /*      Programmer en avance les sorties.
         Boolean test = true;
         AddVisite visite = new AddVisite(this, test, EventType.OUTING);
         visite.setVisible(true);
+        */
     }//GEN-LAST:event_addOutingButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -482,39 +577,39 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         
         EventType eventType = EventType.NONE;
         switch (strEventType){
-            case "OUTING":{
+            case "Sortie":{
                 eventType = EventType.OUTING;
                 break;
             }
-            case "VISIT":{
+            case "Visite":{
                 eventType = EventType.VISIT;
                 break;
             }
-            case "BREAKFAST":{
+            case "Petit-Déjeuner":{
                 eventType = EventType.BREAKFAST;
                 break;
             }
-            case "LUNCH":{
+            case "Déjeuner":{
                 eventType = EventType.LUNCH;
                 break;
             }
-            case "DINNER":{
+            case "Dinner":{
                 eventType = EventType.DINNER;
                 break;
             }
-            case "OTHER_MEAL":{
+            case "Autre-Repas":{
                 eventType = EventType.OTHER_MEAL;
                 break;
             }
-            case "AWAKENING":{
+            case "Lever":{
                 eventType = EventType.AWAKENING;
                 break;
             }
-            case "SLEEPING":{
+            case "Coucher":{
                 eventType = EventType.SLEEPING;
                 break;
             }
-            case "NONE":{
+            case "Autre":{
                 eventType = EventType.NONE;
                 break;
             }  
@@ -545,6 +640,12 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
 
         }            
     }//GEN-LAST:event_deleteEventvalidButtonActionPerformed
+
+    private void shutDownButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shutDownButtonActionPerformed
+        // TODO add your handling code here:
+        menu.setVisible(false);
+        this.setVisible(false);
+    }//GEN-LAST:event_shutDownButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -585,6 +686,8 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private javax.swing.JButton addOutingButton;
     private javax.swing.JButton addVisitButton;
     private javax.swing.JLabel beginHourLabel;
+    private javax.swing.JLabel brightnessLabel;
+    private javax.swing.JButton callAssisstance;
     private javax.swing.JComboBox<String> comboBeginHour;
     private javax.swing.JComboBox<String> comboBeginMin;
     private javax.swing.JComboBox<String> comboDurationHour;
@@ -594,32 +697,37 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private javax.swing.JLabel date_Label;
     private javax.swing.JDialog deleteEventDialog;
     private javax.swing.JButton deleteEventvalidButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel humidityLabel;
+    private javax.swing.JPanel imgPanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JDialog menu;
     private javax.swing.JButton rebootButton;
     private javax.swing.JButton setRoutineButton;
     private javax.swing.JDialog setRoutineDialog;
+    private javax.swing.JButton shutDownButton;
+    private javax.swing.JLabel temperatureLabel;
     private javax.swing.JTextField textFieldDeleteEvent;
     private javax.swing.JTextField textFieldDescription;
     private javax.swing.JTextField textFieldImportance;
@@ -632,6 +740,9 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private JButton addEvent;
     private JFrame displayRoutine;
     private JButton deleteEvent;
+    private Boolean isUserAtHome;
+    private Boolean isUserAlone;
+    private ImageIcon icon; 
     
     public void displayRoutineInit(){
         String tempLabel;
@@ -681,12 +792,24 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         displayRoutine.pack();
     }
     
-    public void displayHour(){
-
-        String txtDate=new SimpleDateFormat("EEEEEEEE, d MMM yyyy HH:mm:ss", Locale.FRANCE).format(new Date());
-        date_Label.setText(txtDate);      
+    public void displayInformation(){
+        
+        String txtDate=new SimpleDateFormat("EEEEEEEE, d MMM yyyy HH:mm", Locale.FRANCE).format(new Date());
+        date_Label.setText(txtDate);  
+        TemperatureSensor T1 = new TemperatureSensor(8);
+        HumiditySensor H1=new HumiditySensor(8);
+        String temperature = ""+T1.getData()+" °C";
+        String humidity = ""+H1.getData()+" %";
+            
+        BrightnessSensor BS=new BrightnessSensor(8);
+        String brightness = ""+BS.getData()+" %";
+        temperatureLabel.setText(temperature);
+        humidityLabel.setText(humidity);
+        brightnessLabel.setText(brightness);
     }
 
+
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addEvent){
