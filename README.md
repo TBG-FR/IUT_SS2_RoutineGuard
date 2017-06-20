@@ -1,3 +1,6 @@
+# TO UPDATE WITH README_FR, README_EN & GOOGLE DOC !!!
+
+
 # /!\ WARNING : This Project is currently in Development /!\
 
 # *RoutineGuard* [EN]
