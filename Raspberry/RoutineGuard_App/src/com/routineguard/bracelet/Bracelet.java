@@ -30,13 +30,15 @@ public class Bracelet {
     boolean waitingUser;
     
     /* ----- Classe "Bracelet" - Constructeurs ----- */
-    public Bracelet(int id, boolean carried, String[] MAC_address) {
+    public Bracelet(int id, /*boolean carried,*/ String[] MAC_address) {
         
-        try {
+        /*try {
             braceletConnection = new ArduinoConnection(MAC_address);
         } catch (InterruptedException ex) {
             Logger.getLogger(Bracelet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
+        
+        braceletConnection = new ArduinoConnection();
         
         this.idBracelet = id;
         waitingUser = false;
@@ -78,20 +80,24 @@ public class Bracelet {
     public void buttonsBehavior() {
         
         if(greenButton.getState() == ButtonState.ERROR || redButton.getState() == ButtonState.ERROR) {
-            // ERREUR
+            System.out.println("[!] Error, unable to contact one of the buttons !");
+            waitingUser = true; // Asks the User to reply with the Bracelet.
         }
         
         if(waitingUser == false && redButton.getState() == ButtonState.PUSHED) {
-            waitingUser = true;
-            // CONFIRMATION ?
+            System.out.println("[!] Red Button Pushed (Unexpected) !");
+            waitingUser = true; // Asks the User to confirm with the Bracelet.
         }
         else if(waitingUser == true && redButton.getState() == ButtonState.PUSHED) {
-            //REPLY RED
-            // APPEL ASSISTANCE
+            System.out.println("[!] Red Button Pushed (Expected) !");
+            System.out.println("[!] CALL... !"); // Call the Assistance
+            // *Communication between Operator & User * //
+            waitingUser = false;
         }
         else if(waitingUser == true && greenButton.getState() == ButtonState.PUSHED) {
-            //REPLY GREEN
-            // ACQUITTEMENT
+            System.out.println("[!] Green Button Pushed (Expected) !");
+            System.out.println("[!] OK... !"); // Everything is alright
+            waitingUser = false;
         }
         
     }

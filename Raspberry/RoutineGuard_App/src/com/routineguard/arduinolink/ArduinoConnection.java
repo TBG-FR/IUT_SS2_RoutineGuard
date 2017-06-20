@@ -283,6 +283,11 @@ public class ArduinoConnection {
 
     }
     
+    // [DEMO : Fake Connection (No Arduino)]
+    public ArduinoConnection() {
+        
+    }
+    
     /* --------------------------------------------- */
     
     public ButtonState getButtonState(boolean color) {
