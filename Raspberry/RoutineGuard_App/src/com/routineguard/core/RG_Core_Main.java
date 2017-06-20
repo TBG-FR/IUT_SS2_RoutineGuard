@@ -4,7 +4,7 @@
 
 package com.routineguard.core;
 
-import com.routineguard.arduinolink.*;
+//import com.routineguard.arduinolink.*;
 import com.routineguard.gui.DisplayInterface;
 import com.routineguard.sensors.*;
 import java.util.Timer;
@@ -22,8 +22,8 @@ import java.util.logging.Logger;
 public class RG_Core_Main { /* MAIN */
      
     public static void main(String[] args) {
-       
-        Routine routine = new Routine();
+        
+        Routine routine=new Routine();
         DisplayInterface myInterface = new DisplayInterface(routine);
         myInterface.setVisible(true);
 //            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
@@ -84,7 +84,7 @@ public class RG_Core_Main { /* MAIN */
 //        
 
         System.out.println("Tests Routine");
-        Routine routine=new Routine();
+        
         House house=new House();
         Event wakeUp=new Event(0,3,0,1,EventType.AWAKENING,2);
         Event eat=new Event(1,1,2,1,EventType.LUNCH,1);
