@@ -859,5 +859,8 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
             linkedBracelet.getPulseSensor().demo_PUSHBUTTON();
         if(e.getKeyCode()==KeyEvent.VK_M)
             linkedBracelet.getAccelSensor().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_N) {}
+            //refreshsensors?
+            
     }
 }

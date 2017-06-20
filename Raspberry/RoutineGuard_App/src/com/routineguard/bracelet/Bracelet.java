@@ -63,8 +63,8 @@ public class Bracelet {
         greenButton.getState();
         redButton.getState();
         buttonsBehavior();
-        motionSensor.refresh();
-        heartSensor.refresh();
+        //motionSensor.refresh();
+        //heartSensor.refresh();
         sensorsBehavior();
         
     }

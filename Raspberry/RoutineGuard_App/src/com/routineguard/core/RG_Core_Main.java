@@ -27,6 +27,12 @@ public class RG_Core_Main { /* MAIN */
         Routine routine=new Routine();
         DisplayInterface myInterface = new DisplayInterface(routine);
         myInterface.setVisible(true);
+        
+        String[] MAC = { "AA11BB22CC33" };
+        
+        Bracelet B1 = new Bracelet(0,MAC);
+        myInterface.addBracelet(B1);
+        
 //            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
 //            MotionSensor MS1=new MotionSensor(2);
 //            MotionSensor MS2=new MotionSensor(3);
@@ -137,9 +143,11 @@ public class RG_Core_Main { /* MAIN */
         TimerTask tache = new TimerTask() {
             int iteration=0;
             public void run() {
+                //B1.checkAll();
                 iteration++;
                 house.checkCaptors(currentDay);
                 if(iteration==100){
+                    //B1.cleanAll();
                     currentDay.timePass();
                     iteration=0;
                 }
@@ -174,7 +182,8 @@ public class RG_Core_Main { /* MAIN */
         B1.checkAll();
         }
         B1.cleanAll();
-        }
         }*/
+        }
+      
     
 }
