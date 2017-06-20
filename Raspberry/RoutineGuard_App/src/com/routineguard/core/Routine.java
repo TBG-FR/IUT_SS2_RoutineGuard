@@ -34,6 +34,11 @@ public class Routine {
         timeTable.add(new Event(event));
         Collections.sort(timeTable,Comparator.comparing(Event::getBeginHour));
     }
+    
+    public void deleteEvent(int index){
+        timeTable.remove(index);
+        Collections.sort(timeTable,Comparator.comparing(Event::getBeginHour));
+    }
 
     public void display(){
         for(int i=0;i<timeTable.size();i++){

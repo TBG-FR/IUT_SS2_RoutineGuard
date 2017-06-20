@@ -4,6 +4,8 @@
 
 package com.routineguard.core;
 
+import com.routineguard.arduinolink.*;
+import com.routineguard.gui.DisplayInterface;
 import com.routineguard.sensors.*;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,6 +23,9 @@ public class RG_Core_Main { /* MAIN */
      
     public static void main(String[] args) {
        
+        Routine routine = new Routine();
+        DisplayInterface myInterface = new DisplayInterface(routine);
+        myInterface.setVisible(true);
 //            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
 //            MotionSensor MS1=new MotionSensor(2);
 //            MotionSensor MS2=new MotionSensor(3);
@@ -71,7 +76,7 @@ public class RG_Core_Main { /* MAIN */
 //            System.out.println("Température : "+T1.getData()+" °C");
 //            System.out.println("Humidité : "+H1.getData()+" %");
 //            
-//            BrightnessSensor BS=new BrightnessSensor(5);
+//            BrightnessSensor BS=new BrightnessSensor(8);
 //            System.out.println("Luminosité : "+BS.getData()+" %");
         
         
