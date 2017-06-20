@@ -5,6 +5,7 @@ It allows us to configure the routine.
 
 package com.routineguard.gui;
 
+import com.routineguard.bracelet.*;
 import com.routineguard.core.*;
 import com.routineguard.sensors.BrightnessSensor;
 import com.routineguard.sensors.HumiditySensor;
@@ -16,6 +17,8 @@ import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -34,7 +37,7 @@ import javax.swing.JPanel;
  *
  * @author Alexandre
  */
-public class DisplayInterface extends javax.swing.JFrame implements ActionListener{
+public class DisplayInterface extends javax.swing.JFrame implements ActionListener, KeyListener {
 
     /**
      * Creates new form DisplaytInterface
@@ -49,6 +52,10 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         initComponents();
         displayInformation();
         displayRoutineInit();
+    }
+    
+    public void addBracelet(Bracelet bracelet) {
+        this.linkedBracelet = bracelet;
     }
 
     /**
@@ -741,6 +748,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private javax.swing.JTextField textFieldImportance;
     private javax.swing.JButton validEventButton;
     // End of variables declaration//GEN-END:variables
+    private Bracelet linkedBracelet;
     private JPanel pano;
     private GridBagConstraints constr;
     Routine routineInUse;
@@ -831,5 +839,25 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
             deleteEventDialog.pack();
             deleteEventDialog.setVisible(true);
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getKeyCode()==KeyEvent.VK_V)
+            linkedBracelet.getGreenButton().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_X)
+            linkedBracelet.getRedButton().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_P)
+            linkedBracelet.getPulseSensor().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_M)
+            linkedBracelet.getAccelSensor().demo_PUSHBUTTON();
     }
 }

@@ -5,9 +5,13 @@
 
     * "sensor" is now "ArduinoDevice"
     * "tempService" is now "UART_Service"
+    * "Main()" is now "ArduinoConnection()" (Constructor) & "args" became "MAC_address"
 */
 
+package com.routineguard.arduinolink;
+
 // Output & Input LIBS
+import com.routineguard.bracelet.ButtonState;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -16,7 +20,7 @@ import java.io.OutputStream;
 import tinyb.*;
 import java.util.*;
 
-public class HelloTinyB {
+public class ArduinoConnection {
     static boolean running = true;
 
     static void printDevice(BluetoothDevice device) {
@@ -71,7 +75,7 @@ public class HelloTinyB {
         return null;
     }
 
-    /*
+    /* 
      * Our device should expose a temperature service, which has a UUID we can find out from the data sheet. The service
      * description of the SensorTag can be found here:
      * http://processors.wiki.ti.com/images/a/a8/BLE_SensorTag_GATT_Server.pdf. The service we are looking for has the
@@ -115,11 +119,11 @@ public class HelloTinyB {
      * The API used in this example is based on TinyB v0.3, which only supports polling,
      * but v0.4 will introduce a simplied API for discovering devices and services.
      */
-    public static void main(String[] args) throws InterruptedException {
+    public ArduinoConnection(String[] MAC_address) throws InterruptedException {
 
         // <editor-fold desc="CODE : Bluetooth Connection to Arduino Device">
         
-        if (args.length < 1) {
+        if (MAC_address.length < 1) {
             System.err.println("Run with <device_address> argument");
             System.exit(-1);
         }
@@ -139,7 +143,7 @@ public class HelloTinyB {
 
         System.out.println("The discovery started: " + (discoveryStarted ? "true" : "false"));
         
-        BluetoothDevice ArduinoDevice = getDevice(args[0]);
+        BluetoothDevice ArduinoDevice = getDevice(MAC_address[0]);
 
         /*
          * After we find the device we can stop looking for other devices.
@@ -219,32 +223,18 @@ public class HelloTinyB {
         System.out.println("UART_Service caracteristics found !");
         
         // </editor-fold>
-
-        //byte[] config = { 0x01 };
-        byte[] config = { 2 };
-        TX_Write.writeValue(config);
-//        
-//        Thread.sleep(1000);
-//            
-//            byte[] tempRaw = RX_Read.readValue();
-//            System.out.print("Temp raw = {");
-//            for (byte b : tempRaw) {
-//                System.out.print(String.format("%02x,", b));
-//            }
-//            System.out.print("}");
         
+        /* ----- -----  ----- -----  ----- -----  ----- -----  ----- -----  ----- -----  ----- ----- 
+                Now that the "link" is established, we would need Methods to communicate with the Device.
+                At least one to send a value and one to receive a value.
+                It would allow us to send the alerts to the Bracelet, and to receive the data from the sensors !
+        
+                Sadly I was unable to make it work. It has been really hard to find the good library and
+                to connect to the device, but it seems that communication with the device is hard too...
+         ----- -----  ----- -----  ----- -----  ----- -----  ----- -----  ----- -----  ----- ----- */
 
-//            while (running) {
-//            
-//            byte[] tempRaw = RX_Read.readValue();
-//            System.out.print("Temp raw = {");
-//            for (byte b : tempRaw) {
-//                System.out.print(String.format("%02x,", b));
-//            }
-//            System.out.print("}");
-//            }
-
-
+        // <editor-fold defaultstate="collapsed" desc="REMOVED : Original code from Intel : Communication with a TI Device.">
+        
 //        /*
 //         * Turn on the Temperature Service by writing 1 in the configuration characteristic, as mentioned in the PDF
 //         * mentioned above. We could also modify the update interval, by writing in the period characteristic, but the
@@ -285,7 +275,58 @@ public class HelloTinyB {
 //                lock.unlock();
 //            }
 //        }
-//        sensor.disconnect();
+        // </editor-fold>
+
+
+        // Removed to avoid disconnecting the BLE Device from the Central Device (PC, RPI, etc)
+        //REMOVED//sensor.disconnect();
 
     }
+    
+    // [DEMO : Fake Connection (No Arduino)]
+    public ArduinoConnection() {
+        
+    }
+    
+    /* --------------------------------------------- */
+    
+    public ButtonState getButtonState(boolean color) {
+        
+        // Here the code should read the button value into the BLE Device...
+        
+        
+        if(color==true) {   // If the queried button is the Green Button
+            
+            // If the Button is Released
+            //if(data_received==0)
+            //    return ButtonState.RELEASED;
+            
+            // If the Button is Pushed
+            //else if(data_received==1)
+            //    return ButtonState.PUSHED
+        }
+        
+        else {  // If the queried button is the Red Button
+            
+            // If the Button is Released
+            //if(data_received==0)
+            //    return ButtonState.RELEASED;
+            
+            // If the Button is Pushed
+            //else if(data_received==1)
+            //    return ButtonState.PUSHED
+        }
+        
+        // If unable to read Button State, return ERROR;
+        return ButtonState.ERROR;
+    }
+
+    public double getAccel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public double getPulse() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
