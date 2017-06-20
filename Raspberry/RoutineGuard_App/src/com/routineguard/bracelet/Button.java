@@ -14,7 +14,6 @@ package com.routineguard.bracelet;
 public class Button extends Bracelet_Sensor {
     
     /* ----- Classe "Button" - Attributs ----- */
-    private Bracelet linkedBracelet;
     private ButtonState state;
     private boolean color; // Helps identifying the type of button (true: Green, false: Red)
     
@@ -31,12 +30,17 @@ public class Button extends Bracelet_Sensor {
     /* ----- Classe "Button" - Accesseurs ----- */
     public ButtonState getState() {
         
-        // Refresh
-        state = linkedBracelet.getArduinoConnection().getButtonState(color);
+        // [DEMO : Removed (No Arduino)]
+        //state = linkedBracelet.getArduinoConnection().getButtonState(color);
         
         return state;
     }
     
     /* ----- Classe "Button" - Mutateurs ----- */
+    
+    // [DEMO : Button Push (No Arduino)]
+    public void demo_PUSHBUTTON() {
+        state = ButtonState.PUSHED;
+    }
     
 }

@@ -1,5 +1,7 @@
 /*
- *  We could use an int value with '-1' for 'ERROR', 0 for 'RELEASED' and 1 for 'PUSHED', but this way seems more convenient.
+ * Enum 'ButtonState' : Here we define the possible states for a Button.
+ *  ----- ------ ----- ------ ----- ------ ----- ------ ----- ------ ----- 
+ * We could also use an int value with '-1' for 'ERROR', 0 for 'RELEASED' and 1 for 'PUSHED'.
  */
 
 package com.routineguard.bracelet;
@@ -13,6 +15,6 @@ package com.routineguard.bracelet;
 
 public enum ButtonState {
     PUSHED,     // Button is Pushed
-    RELEASED,     // Button isn't Pushed
-    ERROR,     // Can't get the state of the Button
+    RELEASED,   // Button isn't Pushed
+    ERROR,      // Can't get the state of the Button
 }
