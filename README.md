@@ -7,16 +7,17 @@ It aims also in **making the communications easier in case of incident**, reduci
 
 # Technical Solutions
 
-This projects uses mainly a *Raspberry Pi* with a *GrovePi*, an *Arduino*, and a bunch of sensors. The Raspberry Pi controls everything, it's the core of the entire system.  
-It communicates with the sensors placed all around the house, and with the Arduino (and its dedicated sensors) which makes a bracelet that the person wears.  
+This projects uses mainly a *Raspberry Pi* with a *GrovePi*, an *Arduino*, and a bunch of sensors.  
+The **Raspberry Pi is the core of the entire system** and it controls everything.  
+It **communicates with the sensors** placed all around the house, and with the **Arduino-Bracelet** (and its sensors) that the person wears.  
 
 # How Does it Work ?
 
-The whole system use the "Routine" concept, that we represented with a Day, containing Events.  
-The Routine is the "Ideal Day", and the program will compare it with the "Current Day" to see if everything is normal.  
+The whole system use the **"Routine"** concept, that we represented with a **Day, containing Events**.  
+The Routine is the **"Ideal Day"**, and the program will compare it with the **"Current Day"** to see if everything is normal.  
   
 One of our goals is to connect the System (Raspberry Pi) with the Bracelet ("Arduino" Feather 32u4), in order to make them communicate.  
-With such a link, we would be able to get the Bracelet's Sensors informations (Beats-per-Minute, Interbeat Interval, Acceleration) to analyse the Health Status of the user, but also to send alerts (Vibrations, Light and/or Sound Signals, Voice, ...) and to get the status of the Buttons (as the Bracelet should have two buttons, a Red one (Ask for Help or "Negative Answer") and a Green one ("Positive Answer").
+With such a link, we would be able to **get the Bracelet's Sensors informations** (*Beats-per-Minute*, *Interbeat Interval*, *Acceleration*) to **analyse the Health Status** of the user, but also to **send alerts** (*Vibrations*, *Light and/or Sound Signals*, *Voice*, *...*) and to **get the status of the Buttons** (as the Bracelet should have two buttons, a Red one (*Ask for Help* or *"Negative Answer"*) and a Green one (*"Positive Answer"*).
  
 # How to Use ?
 
