@@ -115,7 +115,33 @@ public class Day {
     }
 
     public void ResetDay() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        currentTimeSlot=0;
+        currentHour=0;
+        respect=100;
+        currentEvent.setDuration(-1);
+        int nbEvents=routineToWatch.getRoutine().size();
+        for(int i=0;i<nbEvents;i++) {
+            routineToWatch.getRoutine().get(i).setAccomplished(false);
+            int eventHour=routineToWatch.getRoutine().get(i).getBeginHour();
+            int eventSlot=routineToWatch.getRoutine().get(i).getTimeSlot();
+            int eventTolerance=routineToWatch.getRoutine().get(i).getTolerance();
+            int eventDuration=routineToWatch.getRoutine().get(i).getDuration();
+            if(eventHour!=-1){
+                for(int f=1; f< eventTolerance+1 ;f++){
+                    model[(eventHour*6)+eventSlot-f].setEventID(i);
+                    model[(eventHour*6)+eventSlot-f].setShouldBe(false);
+                }
+                for(int f=1; f< eventTolerance+1 ;f++){
+                    model[(eventHour*6)+eventSlot+f].setEventID(i);
+                    model[(eventHour*6)+eventSlot+f].setShouldBe(false);
+                }
+
+                model[(eventHour*6)+eventSlot].setEventID(i);
+                model[(eventHour*6)+eventSlot].setShouldBe(true);
+
+            }
+        }
+        seekEvent();
     }
 
     public void compareRoutine() {

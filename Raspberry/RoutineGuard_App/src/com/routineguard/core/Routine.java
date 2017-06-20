@@ -26,6 +26,7 @@ public class Routine {
     /* ----- Classe "Routine" - Constructeurs ----- */
     public Routine (){
         timeTable=new ArrayList<Event>();
+        timeTable.add(new Event(-1,-1,1,0,EventType.TOILETS,2));
     }
     /* ----- Classe "Routine" - Méthodes ----- */
     

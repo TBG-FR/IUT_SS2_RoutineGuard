@@ -6,6 +6,8 @@ package com.routineguard.core;
 
 import com.routineguard.arduinolink.*;
 import com.routineguard.sensors.*;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,10 +23,31 @@ public class RG_Core_Main { /* MAIN */
     public static void main(String[] args) {
        
 //            System.out.println("PARTIE DETECTEUR DE MOUVEMENT");      
-//            MotionSensor MS1=new MotionSensor(7);
+//            MotionSensor MS1=new MotionSensor(2);
+//            MotionSensor MS2=new MotionSensor(3);
+//            MotionSensor MS3=new MotionSensor(4);
+//            MotionSensor MS4=new MotionSensor(5);
 //            for(int i=0;i<1000;i++){
 //                if(MS1.getData()==1){
-//                    System.out.println("Mouvement detecté");
+//                    System.out.println("Mouvement chambre");
+//                }
+//                else{
+//                    System.out.println("--------------");
+//                }
+//                if(MS2.getData()==1){
+//                    System.out.println("Mouvement couloir");
+//                }
+//                else{
+//                    System.out.println("--------------");
+//                }
+//                if(MS3.getData()==1){
+//                    System.out.println("Mouvement sdb");
+//                }
+//                else{
+//                    System.out.println("--------------");
+//                }
+//                if(MS4.getData()==1){
+//                    System.out.println("Mouvement cuisine");
 //                }
 //                else{
 //                    System.out.println("--------------");
@@ -33,13 +56,14 @@ public class RG_Core_Main { /* MAIN */
 //            
 //            System.out.println("PARTIE APPUI BOUTON");
 //
-//            ContactSensor CS1=new ContactSensor(3);
+//            ContactSensor CS1=new ContactSensor(6);
+//            ContactSensor CS2=new ContactSensor(7);
 //            for(int i=0;i<1000;i++){
 //                if(CS1.getData()==1){
-//                    System.out.println("Bouton Appuyé");
+//                    System.out.println("Bouton Cuisine");
 //                }
-//                else{
-//                    System.out.println("--------------");
+//                if(CS2.getData()==1){
+//                    System.out.println("Bouton WC");
 //                }
 //            }
 //            
@@ -55,8 +79,9 @@ public class RG_Core_Main { /* MAIN */
 //        ArduinoLink AL1 = new ArduinoLink();
 //        
 
-        /*System.out.println("Tests Routine");
+        System.out.println("Tests Routine");
         Routine routine=new Routine();
+        House house=new House();
         Event wakeUp=new Event(0,3,0,1,EventType.AWAKENING,2);
         Event eat=new Event(1,1,2,1,EventType.LUNCH,1);
         Event sleep=new Event(2,2,0,1,EventType.SLEEPING,2);
@@ -68,7 +93,8 @@ public class RG_Core_Main { /* MAIN */
         routine.addEvent(shower);
         
         Day currentDay=new Day(0,0,routine);
-        currentDay.displayModel();
+        
+        /*currentDay.displayModel();
         currentDay.timePass();
         currentDay.timePass();
         currentDay.timePass();
@@ -101,8 +127,22 @@ public class RG_Core_Main { /* MAIN */
         currentDay.timePass();
         currentDay.timePass();
         currentDay.timePass();*/
-
         
+        Timer minuteur = new Timer();
+        TimerTask tache = new TimerTask() {
+            int iteration=0;
+            public void run() {
+                iteration++;
+                house.checkCaptors(currentDay);
+                if(iteration==100){
+                    currentDay.timePass();
+                    iteration=0;
+                }
+                
+            }
+        };
+        minuteur.schedule(tache, 0, 100);
+ 
     
         /*System.out.println("Tests DB");
 
