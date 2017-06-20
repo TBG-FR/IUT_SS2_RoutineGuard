@@ -1,3 +1,5 @@
+# /!\ WARNING : This Project is currently in Development [UNSTABLE] /!\
+
 # *RoutineGuard* [EN]
 
 Project aiming to **help dependent persons** (elderly, for example) with technological **solutions based on a routine**, to monitor them and to analyse if everything is alright, at any time.  
@@ -5,10 +7,10 @@ It aims also in **making the communications easier in case of incident**, reduci
 
 # Technical Solutions
 
-This projects uses mainly a *Raspberry Pi*, an *Arduino*, an a bunch of sensors. The Raspberry Pi controls everything, it's the core of the entire system.  
+This projects uses mainly a *Raspberry Pi* with a *GrovePi*, an *Arduino*, and a bunch of sensors. The Raspberry Pi controls everything, it's the core of the entire system.  
 It communicates with the sensors placed all around the house, and with the Arduino (and its dedicated sensors) which makes a bracelet that the person wears.  
 
-# How it Works ?
+# How Does it Work ?
 
 The whole system use the "Routine" concept, that we represented with a Day, containing Events.  
 The Routine is the "Ideal Day", and the program will compare it with the "Current Day" to see if everything is normal.  
@@ -17,6 +19,20 @@ One of our goals is to connect the System (Raspberry Pi) with the Bracelet ("Ard
 With such a link, we would be able to get the Bracelet's Sensors informations (Beats-per-Minute, Interbeat Interval, Acceleration) to analyse the Health Status of the user, but also to send alerts (Vibrations, Light and/or Sound Signals, Voice, ...) and to get the status of the Buttons (as the Bracelet should have two buttons, a Red one (Ask for Help or "Negative Answer") and a Green one ("Positive Answer").
  
 # How to Use ?
+
+Requirements :
+- A *Raspberry Pi* (ours in under *Raspbian*) with *GrovePi* extension and it's *Sensors*
+- An "Arduino-like" *Feather 32u4* from *Adafruit*
+- A *7" TouchScreen* for *Raspberry Pi*
+
+1. Clone/Download this *Github Repository*
+      1.5 Customize the code for your own needs, if needed (feel free to ask for help !)
+2. Build the Java Project "ArduinoGuard_App" (Located here : 'Raspberry/RoutineGuard_App/')
+      2.5 If you can't build the JAR file, feel free to contact us, we can provite it !
+3. Move the '/dist/' folder into your *Raspberry Pi* and start it with "java -jar /path/ArduinoGuard_App.jar"
+4. You're all set ! You can now **use the Graphical Interface** and test our System !
+
+**IMPORTANT : In the current state (20/06/2017), eveything isn't working/implemented, check the "Project Status" section below !**
 
 # Project Informations
 
@@ -27,6 +43,8 @@ With such a link, we would be able to get the Bracelet's Sensors informations (B
 
 ______________________________________________
 
+# /!\ ATTENTION : Ce Project est actuellement en Developpement [INSTABLE] /!\
+
 # *RoutineGuard* [FR]
 
 Projet ayant pour but d'**aider les personnes en situation de dépendance** (personnes agées par exemple) avec des **solutions technologiques basées sur une routine**, pour les "surveiller" et anlyser si tout va bien, à tout moment.  
@@ -34,7 +52,7 @@ Le but est aussi de **rendre la communication plus simple en cas d'incident** et
 
 # Solutions Techniques
 
-Le projet utilise principalement une *Raspberry Pi*, un *Arduino*, et une floppée de capteurs. La Raspberry Pi contrôle tout le reste, c'est le coeur du système.  
+Le projet utilise principalement une *Raspberry Pi* avec un *GrovePi*, un *Arduino*, et une floppée de capteurs. La Raspberry Pi contrôle tout le reste, c'est le coeur du système.  
 Elle communique avec les capteurs placés aux quatre coins de la maison, et avec l'Arduino (et ses propres capteurs) qui forme un bracelet que la personne porte.  
 
 # Comment ça marche ?
