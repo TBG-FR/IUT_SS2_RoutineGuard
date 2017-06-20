@@ -2,7 +2,7 @@
 
 # *RoutineGuard* [EN]
 
-Project aiming to **help dependent persons** (elderly, for example) with technological **solutions based on a routine**, to monitor them and to analyse if everything is alright, at any time.  
+This Project aims to **help dependent persons** (elderly, for example) with technological **solutions based on a routine**, to monitor them and to analyse if everything is alright, at any time.  
 It aims also in **making the communications easier in case of incident**, reducing the time between the incident and rescue intervention.  
 
 # Technical Solutions
@@ -21,7 +21,7 @@ With such a link, we would be able to **get the Bracelet's Sensors informations*
  
 # How to Use ?
 
-### **IMPORTANT : From now, everything isn't working/implemented, check the "Project Status" section below !**
+**IMPORTANT : From now, everything isn't working/implemented, check the "Project Status" section below !**
 
 ### Requirements :
 - A *Raspberry Pi* (ours in under *Raspbian*) with *GrovePi* extension and it's *Sensors*
@@ -67,7 +67,7 @@ ______________________________________________
 
 # *RoutineGuard* [FR]
 
-Projet ayant pour but d'**aider les personnes en situation de dépendance** (personnes agées par exemple) avec des **solutions technologiques basées sur une routine**, pour les "surveiller" et anlyser si tout va bien, à tout moment.  
+Ce Projet a pour but d'**aider les personnes en situation de dépendance** (personnes agées par exemple) avec des **solutions technologiques basées sur une routine**, pour les "surveiller" et anlyser si tout va bien, à tout moment.  
 Le but est aussi de **rendre la communication plus simple en cas d'incident** et de faire en sorte que les secours arrivent plus rapidement si besoin.  
 
 # Solutions Techniques
