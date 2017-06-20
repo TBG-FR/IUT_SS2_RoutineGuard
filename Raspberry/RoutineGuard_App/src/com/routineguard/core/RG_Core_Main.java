@@ -4,7 +4,9 @@
 
 package com.routineguard.core;
 
-import com.routineguard.arduinolink.*;
+import com.routineguard.arduinolink.ArduinoConnection;
+import com.routineguard.bracelet.*;
+import com.routineguard.gui.DisplayInterface;
 import com.routineguard.sensors.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,7 +110,28 @@ public class RG_Core_Main { /* MAIN */
 
         DataBase db=new DataBase();
         db.connection(); */
-            
+        
+        String[] MAC = { "AA11BB22CC33" };
+        
+        Bracelet B1 = new Bracelet(0,MAC);
+        
+        DisplayInterface D1 = new DisplayInterface();
+        D1.addBracelet(B1);
+        
+        
+        for(int j =0; j<5; j++) {
+        for(int i=0; i<150; i++) {
+        B1.checkAll();
+        B1.checkAll();
+        B1.checkAll();
+        B1.checkAll();
+        B1.checkAll();
+        B1.checkAll();
+        B1.checkAll();
+        B1.checkAll();
+        }
+        B1.cleanAll();
+        }
         }
     
 }

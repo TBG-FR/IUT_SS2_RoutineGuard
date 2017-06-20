@@ -4,10 +4,13 @@
 
 package com.routineguard.gui;
 
+import com.routineguard.bracelet.*;
 import com.routineguard.core.*;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -19,7 +22,7 @@ import javax.swing.JPanel;
  *
  * @author Alexandre
  */
-public class DisplayInterface extends javax.swing.JFrame {
+public class DisplayInterface extends javax.swing.JFrame implements KeyListener {
 
     /**
      * Creates new form DisplaytInterface
@@ -30,6 +33,10 @@ public class DisplayInterface extends javax.swing.JFrame {
         initComponents();
         displayHour();
 
+    }
+    
+    public void addBracelet(Bracelet bracelet) {
+        this.linkedBracelet = bracelet;
     }
 
     /**
@@ -304,10 +311,30 @@ public class DisplayInterface extends javax.swing.JFrame {
     private javax.swing.JButton setRoutineButton;
     private javax.swing.JDialog setRoutineDialog;
     // End of variables declaration//GEN-END:variables
-
+    private Bracelet linkedBracelet;
     
     public void displayHour(){
         String txtDate=new SimpleDateFormat("EEEEEEEE, d MMM yyyy HH:mm:ss", Locale.FRANCE).format(new Date());
         date_Label.setText(txtDate);      
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(e.getKeyCode()==KeyEvent.VK_V)
+            linkedBracelet.getGreenButton().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_X)
+            linkedBracelet.getRedButton().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_P)
+            linkedBracelet.getPulseSensor().demo_PUSHBUTTON();
+        if(e.getKeyCode()==KeyEvent.VK_M)
+            linkedBracelet.getAccelSensor().demo_PUSHBUTTON();
     }
 }
