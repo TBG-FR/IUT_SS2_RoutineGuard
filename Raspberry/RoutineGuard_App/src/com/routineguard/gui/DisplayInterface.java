@@ -510,7 +510,9 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         // TODO add your handling code here:
         
     }//GEN-LAST:event_callAssisstanceActionPerformed
-
+    
+    
+    //set isUserAlone
     private void addVisitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVisitButtonActionPerformed
         // TODO add your handling code here:
         if (isUserAlone == true)
@@ -527,6 +529,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         */
     }//GEN-LAST:event_addVisitButtonActionPerformed
 
+    //set isUserAtHome
     private void addOutingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOutingButtonActionPerformed
         // TODO add your handling code here:
         if (isUserAtHome == true)
@@ -553,12 +556,14 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         // TODO add your handling code here:
     }//GEN-LAST:event_rebootButtonActionPerformed
 
+    //Display Menu
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         menu.setVisible(true);
         menu.pack();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //Display the window to configure the routine.
     private void setRoutineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setRoutineButtonActionPerformed
         // TODO add your handling code here:
         menu.setVisible(false);
@@ -566,6 +571,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         displayRoutine.setVisible(true);
     }//GEN-LAST:event_setRoutineButtonActionPerformed
 
+    //Create Event with the interface and add it to the routine.
     private void validEventButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validEventButtonActionPerformed
         // TODO add your handling code here:
         int beginHour = Integer.parseInt("" + comboBeginHour.getSelectedItem());
@@ -629,6 +635,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         // TODO add your handling code here:
     }//GEN-LAST:event_textFieldDeleteEventActionPerformed
 
+    //Delete an event from the routine.
     private void deleteEventvalidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEventvalidButtonActionPerformed
         // TODO add your handling code here:
         if (Integer.parseInt(textFieldDeleteEvent.getText()) <= routineInUse.getRoutine().size()){
@@ -641,6 +648,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         }            
     }//GEN-LAST:event_deleteEventvalidButtonActionPerformed
 
+    //not working for now
     private void shutDownButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shutDownButtonActionPerformed
         // TODO add your handling code here:
         menu.setVisible(false);
@@ -744,6 +752,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     private Boolean isUserAlone;
     private ImageIcon icon; 
     
+    //Display all event contain in the routine.
     public void displayRoutineInit(){
         String tempLabel;
         listLabel = new ArrayList();
@@ -792,6 +801,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
         displayRoutine.pack();
     }
     
+    //Display Hour and sensor's information (temperature, humidity, brightness)
     public void displayInformation(){
         
         String txtDate=new SimpleDateFormat("EEEEEEEE, d MMM yyyy HH:mm", Locale.FRANCE).format(new Date());
@@ -809,7 +819,7 @@ public class DisplayInterface extends javax.swing.JFrame implements ActionListen
     }
 
 
-    
+    //display delete Event / add Event interface.
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addEvent){
