@@ -19,5 +19,6 @@ public enum EventType {
     AWAKENING,  // Réveil
     SLEEPING, // Coucher
     SHOWER,
+    TOILETS,
     NONE;  //rien a faire 
 }
