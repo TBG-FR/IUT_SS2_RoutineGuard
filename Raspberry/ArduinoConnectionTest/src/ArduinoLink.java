@@ -2,8 +2,7 @@
 // *
 // */
 //
-//package com.routineguard.arduinolink;
-//
+//import java.awt.Font;
 //import java.io.IOException;
 //import java.io.InputStream;
 //import java.io.OutputStream;
@@ -31,9 +30,11 @@
 //    boolean scanFinished = false;
 //    //Replace this with your bluetooth URL    
 //    //String hc05Url = "btspp://d08ba54f422c:1;authenticate=false;encrypt=false;master=false";
-//    String bleUrl = "btspp://D08BA54F422C:1;authenticate=false;encrypt=false;master=false";
+//    //String bleUrl = "btspp://D08BA54F422C:1;authenticate=false;encrypt=false;master=false";
+//    String bleUrl = "org/bluez/hci0/dev_D0_8B_A5_4F_42_2C:1;authenticate=false;encrypt=false;master=false";
 //    
 //    public static void main(String[] args) {
+//        
 //        try {
 //            new ArduinoLink().go();
 //        } catch (Exception ex) {

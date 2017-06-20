@@ -1,0 +1,45 @@
+/org/bluez/hci0/dev_D0_8B_A5_4F_42_2C
+
+The discovery started: true
+ ----- ----- ----- ----- ----- 
+Established connection with the following device :
+Name : Adafruit Bluefruit LE
+Address : D0:8B:A5:4F:42:2C
+Connected ? : true
+ ----- ----- ----- ----- ----- 
+[Adafruit Bluefruit LE]# info
+Device D0:8B:A5:4F:42:2C
+Name: Adafruit Bluefruit LE
+Alias: Adafruit Bluefruit LE
+Paired: yes
+Trusted: yes
+Blocked: no
+Connected: yes
+LegacyPairing: no
+UUID: Vendor specific   (00001530-1212-efde-1523-785feabcd123)
+UUID: Generic Access Profile    (00001800-0000-1000-8000-00805f9b34fb)
+UUID: Generic Attribute Profile (00001801-0000-1000-8000-00805f9b34fb)
+UUID: Device Information(0000180a-0000-1000-8000-00805f9b34fb)
+UUID: Nordic UART Service       (6e400001-b5a3-f393-e0a9-e50e24dcca9e)
+UUID: Vendor specific   (ee0c2080-8786-40ba-ab96-99b91ac981d8)
+RSSI: -67
+TxPower: 0
+
+Characteristics
+Nordic’s UART Service includes the following characteristics:
+
+Name	Mandatory	UUID	Type	Read	Write	Notify	Indicate
+TX		Yes			0x0002	U8[20]	 [ ]	 [X]	[ ]		[ ]
+RX		Yes			0x0003	U8[20]	 [X]	 [ ]	[X]		[ ]
+
+TX (0x0002)
+This characteristic is used to send data back to the sensor node,
+and can be written to by the connected Central device
+(the mobile phone, tablet, etc.).
+
+RX (0x0003)
+This characteristic is used to send data out to the connected
+Central device. Notify can be enabled by the connected device
+so that an alert is raised every time the TX channel is updated.
+
+

@@ -16,6 +16,8 @@ public enum RoomType {
     KITCHEN, // Cuisine
     DININGROOM, // Salle à manger
     LIVINGROOM, // Salon
-    STAIRS, // Escaliers
+    STAIRS,// Escaliers
+    CORRIDOR, //Couloir
+    NONE, //Aucune piece
     CELLAR; // Cave (ou Cellier)
 }
