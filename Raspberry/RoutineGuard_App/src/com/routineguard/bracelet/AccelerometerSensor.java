@@ -34,7 +34,10 @@ public class AccelerometerSensor extends Bracelet_Sensor {
     /* ----- Classe "AccelerometerSensor" - Méthodes ----- */
     public void refresh(){
         
-        double tempAccel = linkedBracelet.getArduinoConnection().getAccel();
+        // [DEMO : Removed (No Arduino)]
+        //double tempAccel = linkedBracelet.getArduinoConnection().getAccel();
+        double tempAccel = Math.random()*35;
+        
         double tempAvg = 0;
         
         list_Accel.add(tempAccel);
@@ -43,6 +46,14 @@ public class AccelerometerSensor extends Bracelet_Sensor {
             tempAvg = list_Accel.get(i);
         
         average_Accel = tempAvg / list_Accel.size();
+    }
+    
+    public void clean() {
+        
+        for(int i=0; i<list_Accel.size()/2; i++) {
+            list_Accel.remove(i);
+        }
+            
     }
     
     /* ----- Classe "AccelerometerSensor" - Accesseurs ----- */ 
@@ -59,5 +70,19 @@ public class AccelerometerSensor extends Bracelet_Sensor {
     }
     
     /* ----- Classe "AccelerometerSensor" - Mutateurs ----- */
+    
+    // [DEMO : Sensor Unexpected Value (No Arduino)]
+    public void demo_PUSHBUTTON() {
+        double tempAccel = 75;
+        
+        double tempAvg = 0;
+        
+        list_Accel.add(tempAccel);
+        
+        for(int i=0; i<list_Accel.size(); i++)
+            tempAvg = list_Accel.get(i);
+        
+        average_Accel = tempAvg / list_Accel.size();
+    }
     
 }

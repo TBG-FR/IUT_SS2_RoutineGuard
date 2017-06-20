@@ -39,7 +39,9 @@ public class PulseSensor extends Bracelet_Sensor {
     /* ----- Classe "PulseSensor" - Méthodes ----- */
     public void refresh(){
         
-        double tempBPM = linkedBracelet.getArduinoConnection().getPulse();
+        // [DEMO : Removed (No Arduino)]
+        //double tempBPM = linkedBracelet.getArduinoConnection().getPulse();
+        double tempBPM = Math.random()*100;
         double tempAvg = 0;
         
         list_BPM.add(tempBPM);
@@ -48,6 +50,14 @@ public class PulseSensor extends Bracelet_Sensor {
             tempAvg = list_BPM.get(i);
         
         average_BPM = tempAvg / list_BPM.size();
+    }
+    
+    public void clean() {
+        
+        for(int i=0; i<list_BPM.size()/2; i++) {
+            list_BPM.remove(i);
+        }
+            
     }
     
     /* ----- Classe "PulseSensor" - Accesseurs ----- */
@@ -64,5 +74,18 @@ public class PulseSensor extends Bracelet_Sensor {
     }
     
     /* ----- Classe "PulseSensor" - Mutateurs ----- */
+    
+    // [DEMO : Sensor Unexpected Value (No Arduino)]
+    public void demo_PUSHBUTTON() {
+        double tempBPM = 0;
+        double tempAvg = 0;
+        
+        list_BPM.add(tempBPM);
+        
+        for(int i=0; i<list_BPM.size(); i++)
+            tempAvg = list_BPM.get(i);
+        
+        average_BPM = tempAvg / list_BPM.size();
+    }
     
 }

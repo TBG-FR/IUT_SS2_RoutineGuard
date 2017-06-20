@@ -18,9 +18,7 @@ public class Bracelet_Sensor {
     
     /* ----- Classe "Button" - Constructeurs ----- */
     public Bracelet_Sensor(Bracelet bracelet) {
-        
         linkedBracelet = bracelet;
-        
     }
     
     /* ----- Classe "Button" - Méthodes ----- */
