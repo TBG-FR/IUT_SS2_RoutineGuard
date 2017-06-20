@@ -1,4 +1,4 @@
-# /!\ WARNING : This Project is currently in Development/!\
+# /!\ WARNING : This Project is currently in Development /!\
 
 # *RoutineGuard* [EN]
 
@@ -20,11 +20,14 @@ With such a link, we would be able to get the Bracelet's Sensors informations (B
  
 # How to Use ?
 
-Requirements :
+**IMPORTANT : From now, everything isn't working/implemented, check the "Project Status" section below !**
+
+### Requirements :
 - A *Raspberry Pi* (ours in under *Raspbian*) with *GrovePi* extension and it's *Sensors*
 - An "Arduino-like" *Feather 32u4* from *Adafruit*
 - A *7" TouchScreen* for *Raspberry Pi*
 
+### Building and Launching Instructions :
 1. Clone/Download this *Github Repository*
       1.5 Customize the code for your own needs, if needed (feel free to ask for help !)
 2. Build the Java Project "ArduinoGuard_App" (Located here : 'Raspberry/RoutineGuard_App/')
@@ -32,7 +35,23 @@ Requirements :
 3. Move the '/dist/' folder into your *Raspberry Pi* and start it with "java -jar /path/ArduinoGuard_App.jar"
 4. You're all set ! You can now **use the Graphical Interface** and test our System !
 
-**IMPORTANT : In the current state (20/06/2017), eveything isn't working/implemented, check the "Project Status" section below !**
+### Interface (Touchscreen-friendly)
+
+[INSERT TRANSLATED TEXT HERE]
+
+### Routine Configuration
+
+[INSERT TRANSLATED TEXT HERE]
+
+# Project Status
+In the current state (20/06/2017) :
+- We are able to **establish a connection between the *Arduino* and the *Raspberry* **(check the "ArduinoConnectionTest" Project).
+- We aren't able to **send/receive data between those two units**.
+      -> In consequence, many pieces of the code are commented, and we've coded some "Simulation" classes & methods.
+- The **GUI (Graphical User Interface)** mainly works, even if some actions are unimplemented.
+- **Sensors & System's "IA"** are mainly working too, you'll see the output in the command prompt
+- There isn't any **interface to see the Statistics**, as we didn't have a working **Database** yet.
+- Alerts aren't implemented (Alerts sent to the Bracelet, SMS/Emails to the relatives, Call to the TeleAssistant
 
 # Project Informations
 
