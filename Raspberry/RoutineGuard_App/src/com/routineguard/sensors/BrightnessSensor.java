@@ -1,5 +1,7 @@
 /*
+ * This sensor enable us to get the brightness of a room and display it on the Raspberry
  *
+ * In this case, we do not have any Brightness Sensor so we simulated it by the hours of the day
  */
 
 package com.routineguard.sensors;
@@ -21,6 +23,7 @@ public class BrightnessSensor  extends RG_Sensor {
     /* ----- Classe "BrightnessSensor" - Attributs ----- */
     private double brightness;
     private double threshold;
+    
     /* ----- Classe "BrightnessSensor" - Constructeurs ----- */
 
     public BrightnessSensor(int _pin) {
@@ -34,7 +37,7 @@ public class BrightnessSensor  extends RG_Sensor {
     /* ----- Classe "BrightnessSensor" - Mutateurs ----- */
 
     @Override
-    public double getData() {
+    public double getData() {      //This method simulate the brightness by the hours of the day
         
         double bright_calc=0;
         

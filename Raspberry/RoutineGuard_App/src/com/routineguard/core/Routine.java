@@ -26,11 +26,17 @@ public class Routine {
     /* ----- Classe "Routine" - Constructeurs ----- */
     public Routine (){
         timeTable=new ArrayList<Event>();
+        timeTable.add(new Event(-1,-1,1,0,EventType.TOILETS,2));
     }
     /* ----- Classe "Routine" - Méthodes ----- */
     
     public void addEvent (Event event){
         timeTable.add(new Event(event));
+        Collections.sort(timeTable,Comparator.comparing(Event::getBeginHour));
+    }
+    
+    public void deleteEvent(int index){
+        timeTable.remove(index);
         Collections.sort(timeTable,Comparator.comparing(Event::getBeginHour));
     }
 
