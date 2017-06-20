@@ -21,7 +21,7 @@ With such a link, we would be able to **get the Bracelet's Sensors informations*
  
 # How to Use ?
 
-**IMPORTANT : From now, everything isn't working/implemented, check the "Project Status" section below !**
+### **IMPORTANT : From now, everything isn't working/implemented, check the "Project Status" section below !**
 
 ### Requirements :
 - A *Raspberry Pi* (ours in under *Raspbian*) with *GrovePi* extension and it's *Sensors*
