@@ -109,10 +109,13 @@ In the current state (20/06/2017) :
 
 Project made by Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI and Tom-Brian GARCIA
 
-[Interface1]: https://github.com/TBG-FR/RoutineGuard/docs/images/Interface_1.png "Graphical Interface"
-[Interface2]: https://github.com/TBG-FR/RoutineGuard/docs/images/Interface_2.png "Visit Button ON"
-[Interface3]: https://github.com/TBG-FR/RoutineGuard/docs/images/Interface_3.png "Outing Button ON"
-[Settings]: https://github.com/TBG-FR/RoutineGuard/docs/images/Settings.png "Settings Menu"
-[Routine1]: https://github.com/TBG-FR/RoutineGuard/docs/images/Routine_Display.png "Routine Menu"
-[Routine2]: https://github.com/TBG-FR/RoutineGuard/docs/images/Routine_Add.png "Routine : Add Event"
-[Routine3]: https://github.com/TBG-FR/RoutineGuard/docs/images/Routine_Remove.png "Routine : Remove Event"
+[Interface1]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Interface_1.png "Graphical Interface"
+[Interface2]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Interface_2.png "Visit Button ON"
+[Interface3]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Interface_3.png "Outing Button ON"
+[Settings]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Settings.png "Settings Menu"
+[Routine1]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Routine_Display.png "Routine Menu"
+[Routine2]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Routine_Add.png "Routine : Add Event"
+[Routine3]: https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Routine_Remove.png "Routine : Remove Event"
+
+https://github.com/TBG-FR/RoutineGuard/raw/master/src/docs/images/Routine_Remove.png "Logo Title Text 2"
+https://raw.githubusercontent.com/TBG-FR/RoutineGuard/master/docs/images/Routine_Remove.png
