@@ -1,15 +1,15 @@
-# /!\ WARNING : This Project is currently in Development /!\
+# /!\ WARNING : This Project is currently in Development [INSTABLE] /!\
 
-# *RoutineGuard* [EN]
+# *RoutineGuard* [**EN**]
 
-This Project aims to **help dependent persons** (elderly, for example) with technological **solutions based on a routine**, to monitor them and to analyse if everything is alright, at any time.  
-It aims also in **making the communications easier in case of incident**, reducing the time between the incident and rescue intervention.  
+This Project aims to **help dependent persons** (elderly, for example) with **technological solutions based on a routine**, to keep an eye on them and to analyse if everything is alright, at any time.  
+It aims also in **making the communications easier in case of incident** and ensuring that the emergency services will be there faster if needed.  
 
 # Technical Solutions
 
-This projects uses mainly a *Raspberry Pi* with a *GrovePi*, an *Arduino*, and a bunch of sensors.  
-The **Raspberry Pi is the core of the entire system** and it controls everything.  
-It **communicates with the sensors** placed all around the house, and with the **Arduino-Bracelet** (and its sensors) that the person wears.  
+This projects uses mainly a *Raspberry Pi* with a *GrovePi*, an *Arduino*, and a fleet of various sensors.  
+The **Raspberry Pi is the core of the entire system**, it controls everything else.  
+It **communicates with the sensors** placed all around the house, and with the **Arduino** (and its own sensors) which makes a Bracelet that the person wears.  
 
 # How does it work ?
 
@@ -21,15 +21,15 @@ With such a link, we would be able to **get the Bracelet's Sensors informations*
 
 	[BRACELET IMAGE]
 	
-Moreover, the system contains **different sensors set in many places of the house** to garantee the user’s safety.  
-There are **motion sensors** in the bedroom, the bathroom and the kitchen, and contact sensors on the fridge (to detect the beginning of a lunch), the toilets and the main entrance's door.  
+Moreover, the system contains **different sensors set in many places of the house** to guarantee the user’s safety.  
+There are **motion sensors** in the bedroom, the bathroom and the kitchen, as well as **contact sensors** on the fridge (to detect the beginning of a lunch), the toilets and the main entrance's door.  
   
-Those differents sensors allow the system to **check wether everything happen** as it is set in the routine (which is settable) or not.  
-Furthermore, the system contains a **temperature and humidity sensor** as well as **brightness sensors**, all set in the house, to act like a micro meteo station.
+Those differents sensors allow the System to **check wether everything happen** as it is set in the Routine (which is settable) or not.  
+Furthermore, the system also contains a **temperature and humidity sensor** as well as **brightness sensors**, all set in the house, to act like a home weather station.
 
 # How to use it ?
 
-**IMPORTANT : From now, everything isn't working/implemented, check the "Project Status" section below !**
+**IMPORTANT : To this day (20/06/2017), everything isn't working/implemented, check the "Project Status" section below !**
 
 ### Requirements :
 - A *Raspberry Pi* (ours in under *Raspbian*) with *GrovePi* extension and it's *Sensors*
@@ -39,29 +39,66 @@ Furthermore, the system contains a **temperature and humidity sensor** as well a
 ### Building and Launching - Instructions :
 1. Clone/Download this *Github Repository*
       1.5 Customize the code for your own needs, if needed (feel free to ask for help !)
-2. Build the Java Project "ArduinoGuard_App" (Located here : 'Raspberry/RoutineGuard_App/')
-      2.5 If you can't build the JAR file, feel free to contact us, we can provite it !
-3. Move the '/dist/' folder into your *Raspberry Pi* and start it with "java -jar /path/ArduinoGuard_App.jar"
+2. Build the Java Project "RoutineGuard_App" (Located here : 'Raspberry/RoutineGuard_App/')
+      2.5 If you can't build the JAR file, feel free to contact us, we can provide it !
+3. Move the generated '/dist/' folder into your *Raspberry Pi* and start it with "java -jar /path/RoutineGuard_App.jar"
 4. You're all set ! You can now **use the Graphical Interface** and test our System !
 
 ### Interface (Touchscreen-friendly)
 
-[INSERT TRANSLATED TEXT HERE]
+The user can access to a very simple interface, made for touchscreens.
+
+	[INTERFACE IMAGE]
+    
+It is divided in two major parts, respectively to the left and to the right sides of the screen :
+- A "Display" part : It allows to view in real time the temperature, the humidity rate and the luminosity.
+- An "Interaction" part, made of 4 buttons :
+    - A "Helpline Call" button, which should allow an immediate online linking with a Helpline Operator
+    - A "Visit" button, allowing to tell the program that the user is currently visited
+    - Un "Outing" button, allowing to tell the program that the user is currently out of his home
+    - Un "Settings" button, allowing the access to a menu, for various options
+
+For the "Visit" and "Outing" buttons, the user only have to push once to indicate an outing or a visit (the button's color then changes)
+When the outing/visit is ended, another push permit to gets back to the normal state (the button takes back its color)
+
+	[INTERFACE IMAGE 2]
+    
+The "Settings" button (located in the top right of the screen) allows access to the following options :
+    - Routine Configuration
+    - Reboot the System
+    - Shutdown the System
+    
+	[INTERFACE IMAGE 3]
 
 ### Routine Configuration
 
-[INSERT TRANSLATED TEXT HERE]
+To access this menu, you need to click on the "Settings" button, and then on "Routine Configuration".
+In this menu, Routine's events are displayed ont the left, organized by beginning hour.
+
+On the left side, two buttons allows to add or remove events, one by one.
+
+    [ROUTINE IMAGE 1]
+
+In order to add and event, one needs to fill in all the required fields, and then to push the button "Validate". The list will then be updated.
+(We'll explain the fields one by one later, if required. Know that in the end the "importance" field we'll be automatically filled, depending on the event)
+
+    [ROUTINE IMAGE 2]
+
+In order to remove an event, one only needs to put the event's number that should be deleted. The list will then be updated.
+(The number is displayed on the left of each event, on the interface)
+
+    [ROUTINE IMAGE 3]
 
 # Project Status
 In the current state (20/06/2017) :
 - We are able to **establish a connection between the *Arduino* and the *Raspberry* **(check the "ArduinoConnectionTest" Project).
 - We aren't able to **send/receive data between those two units**.
-      -> In consequence, many pieces of the code are commented, and we've coded some "Simulation" classes & methods.
+      -> In consequence, many pieces of the code are commented, and we've coded some "Simulation/Fake" classes & methods.
 - The **GUI (Graphical User Interface)** mainly works, even if some actions are unimplemented.
 - **Sensors & System's "IA"** are mainly working too, you'll see the output in the command prompt.
 - We did not have any brightness sensors, so we had to simulate the brightness according to the current hour.
 - There isn't any **interface to see the Statistics**, as we didn't have a working **Database** yet.
-- Alerts aren't implemented (Alerts sent to the Bracelet, SMS/Emails to the relatives, Call to the TeleAssistant.
+- Alerts aren't implemented (Alerts sent to the Bracelet, SMS/Emails sent to the relatives, Call to the Helpline Operator, ...).
 
 # Project Informations
 
@@ -69,3 +106,5 @@ In the current state (20/06/2017) :
 1st Year - **Special Week #2 - Subject 2.2**  
 « Assistance to persons in a dependent situation »  
 « Routine-based monitoring » 
+
+Project made by Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI and Tom-Brian GARCIA
