@@ -89,9 +89,9 @@ Pour supprimer un événement, il suffit de rentrer le numéro de l'évènement 
 
 ![alt text][Routine3]
 
-# Project Status
+# Statut du Projet
 En l'état actuel (20/06/2017) :
-- Nous sommes capables d'**établir la connexion entre l'_Arduino_ et la _Raspberry_**(voir le Projet « ArduinoConnectionTest »).
+- Nous sommes capables d'**établir la connexion entre l'_Arduino_ et la _Raspberry_** (voir le Projet « ArduinoConnectionTest »).
 - Nous ne sommes pas capables d'**envoyer/recevoir des données entre ces deux appareils**.  
       -> En conséquence, plusieurs morceaux de code sont commentés, et nous avons codé des « Fausses » classes et méthodes, de « Simulation ».
 - L' **IHM (Interface Homme Machine)** fonctionne en grande partie, même si certaines actions ne sont pas implémentées.
@@ -107,7 +107,7 @@ En l'état actuel (20/06/2017) :
 « Assistance aux personnes en situation de dépendance »  
 « Surveillance basée sur la routine »
 
-Projet réalisé par Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI et Tom-Brian GARCIA
+Projet réalisé par **_Dyvia FLEURY_**, **_Alexandre VIGNAND_**, **_Enzo CONTINI_** et **_Tom-Brian GARCIA_**
 
 [Interface1]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_1.png "Graphical Interface"
 [Interface2]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_2.png "Visit Button ON"

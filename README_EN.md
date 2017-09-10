@@ -107,7 +107,7 @@ In the current state (20/06/2017) :
 " Assistance to persons in a dependent situation "
 " Routine-based monitoring "
 
-Project made by Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI and Tom-Brian GARCIA
+Project made by **_Dyvia FLEURY_**, **_Alexandre VIGNAND_**, **_Enzo CONTINI_** and **_Tom-Brian GARCIA_**
 
 [Interface1]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_1.png "Graphical Interface"
 [Interface2]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_2.png "Visit Button ON"
