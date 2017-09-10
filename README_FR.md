@@ -38,9 +38,9 @@ Par ailleurs, le système contient également un **campteur de températeur et d
 
 ### Construire et Lancer - Instructions :
 1. Clonez/Téléchargez ce *Dépôt Github*
-      1.5 Customisez le code pour vos propres besoins, si besoin (n'hésitez pas a nous demander de l'aide !)
+    - Customisez le code pour vos propres besoins, si besoin (n'hésitez pas a nous demander de l'aide !)
 2. Construisez (Build) le Projet Java « RoutineGuard_App » (Situé ici : 'Raspberry/RoutineGuard_App/')
-      2.5 Si vous ne pouvez pas construire le fichier JAR, n'hésitez pas à nous contacter, nous pouvons vous le fournir !
+    - Si vous ne pouvez pas construire le fichier JAR, n'hésitez pas à nous contacter, nous pouvons vous le fournir !
 3. Déplacez le dossier '/dist/' généré dans votre *Raspberry Pi* et lancez le avec la commande « java -jar /chemin/RoutineGuard_App.jar »
 4. Tout est prêt ! Vous pouvez désormais **utiliser l'Interface Graphique** et tester notre Système !
 
@@ -48,7 +48,7 @@ Par ailleurs, le système contient également un **campteur de températeur et d
 
 L’utilisateur a accès à une interface graphique tactile très simple, faite pour les écrans tactiles.
 
-	[INTERFACE IMAGE]
+![alt text][Interface1]
     
 Elle est divisée en deux parties, respectivement à gauche et à droite de l'écran :
 - Une partie « Affichage » : Elle permet de consulter en temps réel la température, le taux d’humidité et la luminosité.
@@ -61,14 +61,14 @@ Elle est divisée en deux parties, respectivement à gauche et à droite de l'é
 Pour les boutons « Visite » et « Sortie », il suffit à l'utilisateur d'appuyer une fois pour indiquer une sortie ou une visite (le bouton change alors de couleur)
 Une fois que la sortie/visite est terminée, il suffit d'appuyer à nouveau sur le bouton, pour revenir à l'état normal (le bouton reprend alors sa couleur normale)
 
-	[INTERFACE IMAGE 2]
+![alt text][Interface2]
     
 Le bouton « Paramètres » (en haut à droite) permet d’accéder aux options suivantes :
     - Configurer la Routine
     - Redémarrer le Système
     - Arrêter le Système
     
-	[INTERFACE IMAGE 3]
+![alt text][Settings]
 
 ### Configuration de la Routine
 
@@ -77,22 +77,22 @@ Dans ce menu, les événements de la Routine sont affichés sur la gauche et cla
 
 Sur le côté gauche, deux boutons permettent d'ajouter ou de supprimer les événements, un par un.
 
-    [ROUTINE IMAGE 1]
+![alt text][Routine1]
 
 Pour ajouter un événement, il faut remplir tous les champs requis puis appuyer sur le bouton « Valider ». La liste des évènements sera alors mise à jour.
 (Nous détaillerons les champs un par un plus tard, si nécessaire. Sachez qu'à terme le champ importance sera rempli automatiquement selon l'évènement)
 
-    [ROUTINE IMAGE 2]
+![alt text][Routine2]
 
 Pour supprimer un événement, il suffit de rentrer le numéro de l'évènement que l'on veut supprimer. La liste des évènements sera alors mise à jour.
 (Le numéro est affiché à gauche de chaque évènement, sur l'interface)
 
-    [ROUTINE IMAGE 3]
+![alt text][Routine3]
 
 # Project Status
 En l'état actuel (20/06/2017) :
 - Nous sommes capables d'**établir la connexion entre l'*Arduino* et la *Raspberry* **(voir le Projet « ArduinoConnectionTest »).
-- Nous ne sommes pas capables d'**envoyer/recevoir des données entre ces deux appareils**.
+- Nous ne sommes pas capables d'**envoyer/recevoir des données entre ces deux appareils**.  
       -> En conséquence, plusieurs morceaux de code sont commentés, et nous avons codé des « Fausses » classes et méthodes, de « Simulation ».
 - L' **IHM (Interface Homme Machine)** fonctionne en grande partie, même si certaines actions ne sont pas implémentées.
 - Les **Capteurs & l'« IA » du Système** marchent en grande partie également, vous pourrez voir des messages l'indiquant dans la console.
@@ -108,3 +108,11 @@ En l'état actuel (20/06/2017) :
 « Surveillance basée sur la routine »
 
 Projet réalisé par Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI et Tom-Brian GARCIA
+
+[Interface1]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_1.png "Graphical Interface"
+[Interface2]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_2.png "Visit Button ON"
+[Interface3]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Interface_3.png "Outing Button ON"
+[Settings]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Settings.png "Settings Menu"
+[Routine1]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Display.png "Routine Menu"
+[Routine2]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Add.png "Routine : Add Event"
+[Routine3]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Remove.png "Routine : Remove Event"
