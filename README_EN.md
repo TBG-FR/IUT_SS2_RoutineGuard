@@ -91,7 +91,7 @@ In order to remove an event, one only needs to put the event's number that shoul
 
 # Project Status
 In the current state (20/06/2017) :
-- We are able to **establish a connection between the *Arduino* and the *Raspberry* **(check the "ArduinoConnectionTest" Project).
+- We are able to ** establish a connection between the _Arduino_ and the _Raspberry_ **(check the "ArduinoConnectionTest" Project).
 - We aren't able to **send/receive data between those two units**.  
       -> In consequence, many pieces of the code are commented, and we've coded some "Simulation/Fake" classes & methods.
 - The **GUI (Graphical User Interface)** mainly works, even if some actions are unimplemented.
