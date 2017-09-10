@@ -48,7 +48,7 @@ Furthermore, the system also contains a **temperature and humidity sensor** as w
 
 The user can access to a very simple interface, made for touchscreens.
 
-	[INTERFACE IMAGE]
+![alt text][Interface1]
     
 It is divided in two major parts, respectively to the left and to the right sides of the screen :
 - A "Display" part : It allows to view in real time the temperature, the humidity rate and the luminosity.
@@ -61,14 +61,14 @@ It is divided in two major parts, respectively to the left and to the right side
 For the "Visit" and "Outing" buttons, the user only have to push once to indicate an outing or a visit (the button's color then changes)
 When the outing/visit is ended, another push permit to gets back to the normal state (the button takes back its color)
 
-	[INTERFACE IMAGE 2]
+![alt text][Interface2]
     
 The "Settings" button (located in the top right of the screen) allows access to the following options :
     - Routine Configuration
     - Reboot the System
     - Shutdown the System
     
-	[INTERFACE IMAGE 3]
+![alt text][Settings]
 
 ### Routine Configuration
 
@@ -77,17 +77,17 @@ In this menu, Routine's events are displayed ont the left, organized by beginnin
 
 On the left side, two buttons allows to add or remove events, one by one.
 
-    [ROUTINE IMAGE 1]
+![alt text][Routine1]
 
 In order to add and event, one needs to fill in all the required fields, and then to push the button "Validate". The list will then be updated.
 (We'll explain the fields one by one later, if required. Know that in the end the "importance" field we'll be automatically filled, depending on the event)
 
-    [ROUTINE IMAGE 2]
+![alt text][Routine2]
 
 In order to remove an event, one only needs to put the event's number that should be deleted. The list will then be updated.
 (The number is displayed on the left of each event, on the interface)
 
-    [ROUTINE IMAGE 3]
+![alt text][Routine3]
 
 # Project Status
 In the current state (20/06/2017) :
@@ -108,3 +108,11 @@ In the current state (20/06/2017) :
 " Routine-based monitoring "
 
 Project made by Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI and Tom-Brian GARCIA
+
+[Interface1]: https://github.com/TBG-FR/RoutineGuard/docs/images/Interface_1.png "Graphical Interface"
+[Interface2]: https://github.com/TBG-FR/RoutineGuard/docs/images/Interface_2.png "Visit Button ON"
+[Interface3]: https://github.com/TBG-FR/RoutineGuard/docs/images/Interface_3.png "Outing Button ON"
+[Settings]: https://github.com/TBG-FR/RoutineGuard/docs/images/Settings.png "Settings Menu"
+[Routine1]: https://github.com/TBG-FR/RoutineGuard/docs/images/Routine_Display.png "Routine Menu"
+[Routine2]: https://github.com/TBG-FR/RoutineGuard/docs/images/Routine_Add.png "Routine : Add Event"
+[Routine3]: https://github.com/TBG-FR/RoutineGuard/docs/images/Routine_Remove.png "Routine : Remove Event"
