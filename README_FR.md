@@ -107,4 +107,4 @@ En l'état actuel (20/06/2017) :
 « Assistance aux personnes en situation de dépendance »  
 « Surveillance basée sur la routine »
 
-Project réalisé par Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI et Tom-Brian GARCIA
+Projet réalisé par Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI et Tom-Brian GARCIA
