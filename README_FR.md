@@ -1,4 +1,4 @@
-# /!\ ATTENTION : Ce Project est actuellement en Développement [INSTABLE] /!\
+# /!\ ATTENTION : Projet actuellement en Développement [INSTABLE] /!\
 
 # *RoutineGuard* [**FR**]
 
