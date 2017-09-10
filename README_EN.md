@@ -38,61 +38,61 @@ Furthermore, the system also contains a **temperature and humidity sensor** as w
 
 ### Building and Launching - Instructions :
 1. Clone/Download this *Github Repository*
-      1.5 Customize the code for your own needs, if needed (feel free to ask for help !)
+..1.5 Customize the code for your own needs, if needed (feel free to ask for help !)
 2. Build the Java Project "RoutineGuard_App" (Located here : 'Raspberry/RoutineGuard_App/')
-      2.5 If you can't build the JAR file, feel free to contact us, we can provide it !
+..2.5 If you can't build the JAR file, feel free to contact us, we can provide it !
 3. Move the generated '/dist/' folder into your *Raspberry Pi* and start it with "java -jar /path/RoutineGuard_App.jar"
 4. You're all set ! You can now **use the Graphical Interface** and test our System !
 
 ### Interface (Touchscreen-friendly)
 
-The user can access to a very simple interface, made for touchscreens.
+The user can access to a very simple interface, made for touchscreens.  
 
 ![alt text][Interface1]
     
 It is divided in two major parts, respectively to the left and to the right sides of the screen :
 - A "Display" part : It allows to view in real time the temperature, the humidity rate and the luminosity.
 - An "Interaction" part, made of 4 buttons :
-    - A "Helpline Call" button, which should allow an immediate online linking with a Helpline Operator
-    - A "Visit" button, allowing to tell the program that the user is currently visited
-    - Un "Outing" button, allowing to tell the program that the user is currently out of his home
-    - Un "Settings" button, allowing the access to a menu, for various options
+..- A "Helpline Call" button, which should allow an immediate online linking with a Helpline Operator
+..- A "Visit" button, allowing to tell the program that the user is currently visited
+..- A "Outing" button, allowing to tell the program that the user is currently out of his home
+..- A "Settings" button, allowing the access to a menu, for various options
 
-For the "Visit" and "Outing" buttons, the user only have to push once to indicate an outing or a visit (the button's color then changes)
-When the outing/visit is ended, another push permit to gets back to the normal state (the button takes back its color)
+For the "Visit" and "Outing" buttons, the user only have to push once to indicate an outing or a visit (the button's color then changes)  
+When the outing/visit is ended, another push permit to gets back to the normal state (the button takes back its color)  
 
 ![alt text][Interface2]
     
 The "Settings" button (located in the top right of the screen) allows access to the following options :
-    - Routine Configuration
-    - Reboot the System
-    - Shutdown the System
+- Routine Configuration
+- Reboot the System
+- Shutdown the System
     
 ![alt text][Settings]
 
 ### Routine Configuration
 
-To access this menu, you need to click on the "Settings" button, and then on "Routine Configuration".
-In this menu, Routine's events are displayed ont the left, organized by beginning hour.
-
-On the left side, two buttons allows to add or remove events, one by one.
+To access this menu, you need to click on the "Settings" button, and then on "Routine Configuration".  
+In this menu, Routine's events are displayed ont the left, organized by beginning hour.  
+  
+On the left side, two buttons allows to add or remove events, one by one.  
 
 ![alt text][Routine1]
 
-In order to add and event, one needs to fill in all the required fields, and then to push the button "Validate". The list will then be updated.
-(We'll explain the fields one by one later, if required. Know that in the end the "importance" field we'll be automatically filled, depending on the event)
+In order to add and event, one needs to fill in all the required fields, and then to push the button "Validate". The list will then be updated.  
+(We'll explain the fields one by one later, if required. Know that in the end the "importance" field we'll be automatically filled, depending on the event)  
 
 ![alt text][Routine2]
 
-In order to remove an event, one only needs to put the event's number that should be deleted. The list will then be updated.
-(The number is displayed on the left of each event, on the interface)
+In order to remove an event, one only needs to put the event's number that should be deleted. The list will then be updated.  
+(The number is displayed on the left of each event, on the interface)  
 
 ![alt text][Routine3]
 
 # Project Status
 In the current state (20/06/2017) :
 - We are able to **establish a connection between the *Arduino* and the *Raspberry* **(check the "ArduinoConnectionTest" Project).
-- We aren't able to **send/receive data between those two units**.
+- We aren't able to **send/receive data between those two units**.  
       -> In consequence, many pieces of the code are commented, and we've coded some "Simulation/Fake" classes & methods.
 - The **GUI (Graphical User Interface)** mainly works, even if some actions are unimplemented.
 - **Sensors & System's "IA"** are mainly working too, you'll see the output in the command prompt.
