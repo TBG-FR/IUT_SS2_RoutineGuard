@@ -38,9 +38,9 @@ Furthermore, the system also contains a **temperature and humidity sensor** as w
 
 ### Building and Launching - Instructions :
 1. Clone/Download this *Github Repository*
-..1.5 Customize the code for your own needs, if needed (feel free to ask for help !)
+	- Customize the code for your own needs, if needed (feel free to ask for help !)
 2. Build the Java Project "RoutineGuard_App" (Located here : 'Raspberry/RoutineGuard_App/')
-..2.5 If you can't build the JAR file, feel free to contact us, we can provide it !
+	- If you can't build the JAR file, feel free to contact us, we can provide it !
 3. Move the generated '/dist/' folder into your *Raspberry Pi* and start it with "java -jar /path/RoutineGuard_App.jar"
 4. You're all set ! You can now **use the Graphical Interface** and test our System !
 
@@ -53,12 +53,12 @@ The user can access to a very simple interface, made for touchscreens.
 It is divided in two major parts, respectively to the left and to the right sides of the screen :
 - A "Display" part : It allows to view in real time the temperature, the humidity rate and the luminosity.
 - An "Interaction" part, made of 4 buttons :
-..- A "Helpline Call" button, which should allow an immediate online linking with a Helpline Operator
-..- A "Visit" button, allowing to tell the program that the user is currently visited
-..- A "Outing" button, allowing to tell the program that the user is currently out of his home
-..- A "Settings" button, allowing the access to a menu, for various options
+	- A "Helpline Call" button, which should allow an immediate online linking with a Helpline Operator
+	- A "Visit" button, allowing to tell the program that the user is currently visited
+	- A "Outing" button, allowing to tell the program that the user is currently out of his home
+	- A "Settings" button, allowing the access to a menu, for various options
 
-For the "Visit" and "Outing" buttons, the user only have to push once to indicate an outing or a visit (the button's color then changes)  
+For the "Visit" and "Outing" buttons, the user only have to push once to indicate an outing or a visit (the button's color will change)  
 When the outing/visit is ended, another push permit to gets back to the normal state (the button takes back its color)  
 
 ![alt text][Interface2]
@@ -116,6 +116,3 @@ Project made by Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI and Tom-Brian GARC
 [Routine1]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Display.png "Routine Menu"
 [Routine2]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Add.png "Routine : Add Event"
 [Routine3]: https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Remove.png "Routine : Remove Event"
-
-https://github.com/TBG-FR/RoutineGuard/raw/master/docs/images/Routine_Remove.png "Logo Title Text 2"
-https://raw.githubusercontent.com/TBG-FR/RoutineGuard/master/docs/images/Routine_Remove.png
