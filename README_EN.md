@@ -1,4 +1,5 @@
-# /!\ WARNING : Project currently in Development [INSTABLE] /!\
+# /!\ WARNING : Project currently in Development /!\
+## ⇨ Unfinished project, no stable release available
 
 # *RoutineGuard* [**EN**]
 
