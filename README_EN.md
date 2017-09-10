@@ -97,14 +97,14 @@ In the current state (20/06/2017) :
 - The **GUI (Graphical User Interface)** mainly works, even if some actions are unimplemented.
 - **Sensors & System's "IA"** are mainly working too, you'll see the output in the command prompt.
 - We did not have any brightness sensors, so we had to simulate the brightness according to the current hour.
-- There isn't any **interface to see the Statistics**, as we didn't have a working **Database** yet.
-- Alerts aren't implemented (Alerts sent to the Bracelet, SMS/Emails sent to the relatives, Call to the Helpline Operator, ...).
+- There isn't any **interface to display the Statistics or the History**, as we didn't have a working **Database** yet.
+- **Alerts** aren't implemented (Alerts sent to the Bracelet, SMS/Emails sent to the relatives, Call to the Helpline Operator, ...).
 
 # Project Informations
 
 *IUT Lyon 1* - Bourg-en-Bresse - Computing Sciences  
 1st Year - **Special Week #2 - Subject 2.2**  
-« Assistance to persons in a dependent situation »  
-« Routine-based monitoring » 
+" Assistance to persons in a dependent situation "
+" Routine-based monitoring "
 
 Project made by Dyvia FLEURY, Alexandre VIGNAND, Enzo CONTINI and Tom-Brian GARCIA
