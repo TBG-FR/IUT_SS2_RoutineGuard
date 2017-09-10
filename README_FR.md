@@ -91,7 +91,7 @@ Pour supprimer un événement, il suffit de rentrer le numéro de l'évènement 
 
 # Project Status
 En l'état actuel (20/06/2017) :
-- Nous sommes capables d'**établir la connexion entre l'*Arduino* et la *Raspberry* **(voir le Projet « ArduinoConnectionTest »).
+- Nous sommes capables d'**établir la connexion entre l'_Arduino_ et la _Raspberry_**(voir le Projet « ArduinoConnectionTest »).
 - Nous ne sommes pas capables d'**envoyer/recevoir des données entre ces deux appareils**.  
       -> En conséquence, plusieurs morceaux de code sont commentés, et nous avons codé des « Fausses » classes et méthodes, de « Simulation ».
 - L' **IHM (Interface Homme Machine)** fonctionne en grande partie, même si certaines actions ne sont pas implémentées.
