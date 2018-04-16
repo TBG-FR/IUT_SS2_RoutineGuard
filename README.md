@@ -1,6 +1,6 @@
 # *RoutineGuard* [EN/FR]
 
-## /!\ WARNING : This Project is currently in Development [INSTABLE] /!\
+## /!\ WARNING : This Project is currently in Development [UNSTABLE] /!\
 ## ⇨ Read closely the [entire ReadMe [English]](/README_EN.md) here ⇦
 ______________________________________________
 
